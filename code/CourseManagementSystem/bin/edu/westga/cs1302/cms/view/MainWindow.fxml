@@ -10,8 +10,10 @@
    <children>
       <Button layoutX="229.0" layoutY="87.0" mnemonicParsing="false" onAction="#removeStudent" text="-" />
       <Button layoutX="229.0" layoutY="38.0" mnemonicParsing="false" onAction="#addStudent" text="+" />
-      <TextField fx:id="name" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Name" />
+      <TextField fx:id="name" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="200.0" promptText="Please Enter Student Name" />
+      <TextField fx:id="grade" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="200.0" promptText="Please Enter Student Grade" />
       <Label layoutX="98.0" layoutY="14.0" text="Name" />
-      <ListView fx:id="students" layoutX="14.0" layoutY="87.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="98.0" layoutY="65.0" text="Grade" />
+      <ListView fx:id="students" layoutX="14.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
