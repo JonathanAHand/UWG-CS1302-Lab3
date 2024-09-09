@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="300.0" minWidth="289.0" prefHeight="300.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.cms.view.MainWindow">
+<AnchorPane minHeight="300.0" minWidth="289.0" prefHeight="353.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.cms.view.MainWindow">
    <children>
       <Button layoutX="229.0" layoutY="87.0" mnemonicParsing="false" onAction="#removeStudent" text="-" />
       <Button layoutX="229.0" layoutY="38.0" mnemonicParsing="false" onAction="#addStudent" text="+" />
@@ -14,6 +14,7 @@
       <TextField fx:id="grade" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="200.0" promptText="Please Enter Student Grade" />
       <Label layoutX="98.0" layoutY="14.0" text="Name" />
       <Label layoutX="98.0" layoutY="65.0" text="Grade" />
-      <ListView fx:id="students" layoutX="14.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="averageGradeLabel" layoutX="69.0" layoutY="312.0" text="Average Grade: 0" />
+      <ListView fx:id="students" layoutX="21.0" layoutY="120.0" prefHeight="187.0" prefWidth="193.0" />
    </children>
 </AnchorPane>
