@@ -24,8 +24,6 @@ public class MainWindow {
 	@FXML
 	private Label averageGradeLabel;
 
-	// private StudentController studentController;
-
 	/**
 	 * Updates and displays the average class grade level accordingly.
 	 * 
