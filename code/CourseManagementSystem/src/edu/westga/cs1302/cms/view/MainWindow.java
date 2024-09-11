@@ -24,26 +24,16 @@ public class MainWindow {
 	@FXML
 	private Label averageGradeLabel;
 
+	// private StudentController studentController;
+
 	/**
-	 * Calculates the average class grade of all students input to the list and
-	 * updates the average grade level accordingly.
+	 * Updates and displays the average class grade level accordingly.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 */
-	public void calculateStudentGradeAverage() {
-		double sumGrades = 0;
-		int numStudents = 0;
-		for (Student student : this.students.getItems()) {
-			sumGrades += student.getGrade();
-			numStudents++;
-		}
-		double classAverage = 0;
-		if (numStudents > 0) {
-			classAverage = sumGrades / numStudents;
-		} else {
-			classAverage = 0;
-		}
+	public void updateStudentGradeAverage() {
+		double classAverage = Student.calculateGradeAverage(this.students.getItems());
 		this.averageGradeLabel.setText(String.format("Average Class Grade is: %.2f", classAverage));
 	}
 
@@ -68,7 +58,7 @@ public class MainWindow {
 			int grade = Integer.parseInt(this.grade.getText());
 			Student student = new Student(studentName, grade);
 			this.students.getItems().add(student);
-			this.calculateStudentGradeAverage();
+			this.updateStudentGradeAverage();
 		} catch (NumberFormatException errorThing) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText("Grade must be a valid number. Please enter a valid grade");
@@ -109,7 +99,7 @@ public class MainWindow {
 		Student currentStudent = this.students.getSelectionModel().getSelectedItem();
 		if (currentStudent != null) {
 			this.students.getItems().remove(currentStudent);
-			this.calculateStudentGradeAverage();
+			this.updateStudentGradeAverage();
 			this.clearUI();
 		}
 	}
@@ -138,4 +128,5 @@ public class MainWindow {
 			}
 		});
 	}
+
 }

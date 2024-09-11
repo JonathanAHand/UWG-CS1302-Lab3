@@ -1,5 +1,7 @@
 package edu.westga.cs1302.cms.model;
 
+import java.util.List;
+
 /**
  * Stores and manages information for a single student.
  * 
@@ -40,7 +42,7 @@ public class Student {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/**
 	 * Return the grade for the student
 	 * 
@@ -63,4 +65,22 @@ public class Student {
 	public String toString() {
 		return this.name + " --- " + this.grade;
 	}
+
+	/**
+	 * Calculates average grade of class roster list
+	 * 
+	 * @param students the list of students in class roster
+	 * @return returns the average grade of the students
+	 */
+	public static double calculateGradeAverage(List<Student> students) {
+		if (students.isEmpty()) {
+			return 0;
+		}
+		double sumGrades = 0;
+		for (Student student : students) {
+			sumGrades += student.getGrade();
+		}
+		return sumGrades / students.size();
+	}
+
 }
