@@ -1,6 +1,7 @@
 package edu.westga.cs1302.bill.view;
 
 import edu.westga.cs1302.bill.model.Bill;
+import edu.westga.cs1302.bill.model.BillCalculator;
 import edu.westga.cs1302.bill.model.BillItem;
 
 /**
@@ -14,6 +15,7 @@ public class BillTextifier {
 	/**
 	 * Return a String summarizing the bill.
 	 * 
+	 * @param bill the bill object containing the items to summarize.
 	 * @precondition none
 	 * @postcondition none
 	 * 
@@ -23,6 +25,9 @@ public class BillTextifier {
 		if (bill == null) {
 			throw new IllegalArgumentException("Must provide a valid Bill");
 		}
+
+		BillItem[] items = bill.getItems();
+
 		String text = "ITEMS" + System.lineSeparator();
 		for (BillItem item : bill.getItems()) {
 			if (item != null) {
@@ -32,10 +37,11 @@ public class BillTextifier {
 		}
 
 		text += System.lineSeparator();
-		text += "SUBTOTAL - " + BillTextifier.convertToCurrency(bill.getSubTotal()) + System.lineSeparator();
-		text += "TAX - " + BillTextifier.convertToCurrency(bill.getTax()) + System.lineSeparator();
-		text += "TIP - " + BillTextifier.convertToCurrency(bill.getTip()) + System.lineSeparator();
-		text += "TOTAL - " + BillTextifier.convertToCurrency(bill.getTotal());
+		text += "SUBTOTAL - " + BillTextifier.convertToCurrency(BillCalculator.getSubTotal(items))
+				+ System.lineSeparator();
+		text += "TAX - " + BillTextifier.convertToCurrency(BillCalculator.getTax(items)) + System.lineSeparator();
+		text += "TIP - " + BillTextifier.convertToCurrency(BillCalculator.getTip(items)) + System.lineSeparator();
+		text += "TOTAL - " + BillTextifier.convertToCurrency(BillCalculator.getTotal(items));
 
 		return text;
 	}
