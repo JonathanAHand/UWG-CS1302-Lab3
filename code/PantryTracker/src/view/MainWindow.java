@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-//import model.Food;
+import model.Food;
 
 public class MainWindow {
 
@@ -23,7 +23,7 @@ public class MainWindow {
 	private ComboBox<String> foodTypeComboBox;
 
 	@FXML
-	private ListView<String> foodListView;
+	private ListView<Food> foodListView;
 
 	/**
 	 * Adds a single food item to the pantry list. Retrieves the food name and food
@@ -37,20 +37,20 @@ public class MainWindow {
 			String foodName = foodNameTextField.getText();
 			String foodType = foodTypeComboBox.getValue();
 			if (foodName != null && !foodName.isEmpty() && foodType != null) {
-//				Food newFood = new Food(foodName, foodType);
-//
-//				boolean wasFound = false;
-//				for (Food food : foodListView.getItems()) {
-//					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
-//						food.incrementQuantity();
-//						wasFound = true;
-//						break;
-//					}
-//				}
-//
-//				if (!wasFound) {
-//					foodListView.getItems().add(newFood);
-//				}
+				Food newFood = new Food(foodName, foodType);
+
+				boolean wasFound = false;
+				for (Food food : foodListView.getItems()) {
+					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
+						food.incrementQuantity();
+						wasFound = true;
+						break;
+					}
+				}
+
+				if (!wasFound) {
+					foodListView.getItems().add(newFood);
+				}
 
 				foodListView.refresh();
 				foodNameTextField.clear();
