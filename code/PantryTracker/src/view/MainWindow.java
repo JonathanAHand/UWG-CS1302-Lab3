@@ -24,6 +24,11 @@ public class MainWindow {
 
 	@FXML
 	private ListView<Food> foodListView;
+	
+	@FXML
+	private void initialize() {
+		foodTypeComboBox.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient");
+	}
 
 	/**
 	 * Adds a single food item to the pantry list. Retrieves the food name and food
@@ -41,11 +46,11 @@ public class MainWindow {
 
 				boolean wasFound = false;
 				for (Food food : foodListView.getItems()) {
-					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
-						food.incrementQuantity();
-						wasFound = true;
-						break;
-					}
+//					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
+//						food.incrementQuantity();
+//						wasFound = true;
+//						break;
+//					}
 				}
 
 				if (!wasFound) {

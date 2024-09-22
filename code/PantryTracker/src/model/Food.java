@@ -2,7 +2,6 @@ package model;
 
 /**
  * Represents a food item for the pantry with a name, type, and quantity.
- * Provides logic to find details about the food and increment the quantity.
  * 
  * @author jhand1
  * @version 1.0
@@ -19,9 +18,7 @@ public class Food {
 	 * @preconditions name != null && name !isEmpty() && type != null && type
 	 *                !isEmpty().
 	 * @postconditions getName() == name && getType() == type && getQuanity() =
-	 *                 quantity
-	 * @postconditions incrementQuantity() increments by 1 unit.
-	 * 
+	 *                 quantity.
 	 * @param name the name of the food in the pantry.
 	 * @param type the type of the food in the pantry.
 	 */
@@ -74,26 +71,6 @@ public class Food {
 			throw new IllegalArgumentException("Quantity can't be negative.");
 		}
 		this.quantity = quantity;
-	}
-
-	/**
-	 * Decreases the food item quantity by 1 if above 0. Throws if below 0.
-	 * 
-	 */
-	public void decrementQuantity() {
-		if (quantity > 0) {
-			quantity--;
-		} else {
-			throw new IllegalStateException("Cannot decrement quantity below 0.");
-		}
-	}
-
-	/**
-	 * Increases the food item quantity by 1.
-	 * 
-	 */
-	public void incrementQuantity() {
-		quantity++;
 	}
 
 	/**
