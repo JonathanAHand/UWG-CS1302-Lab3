@@ -30,5 +30,6 @@
     <Button layoutX="300.0" layoutY="230.0" onAction="#handleIncrementQuantity" text="Increment Quantity" />
     
     <Button layoutX="300.0" layoutY="260.0" onAction="#handleDecrementQuantity" text="Decrement Quantity" />
+   <Button layoutX="119.0" layoutY="141.0" mnemonicParsing="false" text=" Remove Food" />
     
 </AnchorPane>

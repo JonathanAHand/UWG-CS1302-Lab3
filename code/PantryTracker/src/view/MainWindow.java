@@ -148,6 +148,13 @@ public class MainWindow {
 			showErrorAlert("No Item Selected", "Please select a food item from the list.");
 		}
 	}
+	
+	/**
+	 * Removes a selected food item from the pantry.
+	 */
+	public void handleRemoveFood() {
+		
+	}
 
 	/**
 	 * Displays an error alert message to the user with given title and message.
