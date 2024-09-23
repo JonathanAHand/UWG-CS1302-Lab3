@@ -24,7 +24,10 @@ public class MainWindow {
 
 	@FXML
 	private ListView<Food> foodListView;
-	
+
+	@FXML
+	private TextField setQuantityTextField;
+
 	@FXML
 	private void initialize() {
 		foodTypeComboBox.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient");
@@ -66,6 +69,82 @@ public class MainWindow {
 			showErrorAlert("Invalid Input", errorObject.getMessage());
 		} catch (Exception errorGeneral) {
 			showErrorAlert("Unexpected Error", "An unexpected error has occurred. Please check inputs.");
+		}
+	}
+
+	/**
+	 * Sets the quantity of the selected food item to the user's input.
+	 */
+	@FXML
+	public void handleSetQuantity() {
+		try {
+			Food selectedFood = foodListView.getSelectionModel().getSelectedItem();
+			int newQuantity = Integer.parseInt(setQuantityTextField.getText());
+
+			if (newQuantity < 0) {
+				throw new IllegalArgumentException("Quantity cannot be negative.");
+			}
+
+			if (selectedFood != null) {
+				selectedFood.setQuantity(newQuantity);
+				foodListView.refresh();
+				setQuantityTextField.clear();
+			} else {
+				throw new NullPointerException("No food item selected.");
+			}
+		} catch (NumberFormatException e) {
+			showErrorAlert("Invalid Input", "Please enter a valid number for quantity.");
+		} catch (NullPointerException e) {
+			showErrorAlert("No Item Selected", "Please select a food item from the list.");
+		} catch (IllegalArgumentException e) {
+			showErrorAlert("Invalid Quantity", e.getMessage());
+		}
+	}
+
+	/**
+	 * Increases the quantity of the selected food item by 1 unit.
+	 */
+	@FXML
+	public void handleIncrementQuantity() {
+		try {
+			Food selectedFood = foodListView.getSelectionModel().getSelectedItem();
+
+			if (selectedFood != null) {
+				selectedFood.setQuantity(selectedFood.getQuantity() + 1);
+				foodListView.refresh();
+
+			} else {
+				throw new NullPointerException("No food was selected.");
+			}
+		} catch (NullPointerException e) {
+			showErrorAlert("No Item Selected", "Please select a food item from the list.");
+		}
+	}
+
+	/**
+	 * Decreases the quantity of the selected food item by 1 unit.
+	 */
+	@FXML
+	public void handleDecrementQuantity() {
+		try {
+			Food selectedFood = foodListView.getSelectionModel().getSelectedItem();
+
+			if (selectedFood != null) {
+				if (selectedFood.getQuantity() > 0) {
+					selectedFood.setQuantity(selectedFood.getQuantity() - 1);
+
+				} else {
+					throw new IllegalStateException("Quantity cannot be less than 0.");
+				}
+
+				foodListView.refresh();
+			} else {
+				throw new NullPointerException("No food item selected.");
+			}
+		} catch (IllegalStateException e) {
+			showErrorAlert("Invalid Action", "Quantity cannot be less than 0.");
+		} catch (NullPointerException e) {
+			showErrorAlert("No Item Selected", "Please select a food item from the list.");
 		}
 	}
 
