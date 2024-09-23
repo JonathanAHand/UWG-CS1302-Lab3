@@ -37,7 +37,7 @@ public class Food {
 	/**
 	 * Gets the name of the food item.
 	 * 
-	 * @return name of the food item.
+	 * @return the name of the food item.
 	 */
 	public String getName() {
 		return name;
@@ -62,9 +62,10 @@ public class Food {
 	}
 
 	/**
-	 * Sets the quantity of the food item. Must be 0 or greater or throws.
+	 * Sets the quantity of the food item in the pantry. Must be 0 or greater or
+	 * throws Exception.
 	 * 
-	 * @param quantity the quantity of the food item.
+	 * @param quantity the quantity of the food item to be added to the pantry.
 	 */
 	public void setQuantity(int quantity) {
 		if (quantity < 0) {
@@ -74,9 +75,28 @@ public class Food {
 	}
 
 	/**
+	 * Increases the quantity of the food item in the pantry by 1 unit.
+	 */
+	public void incrementQuantity() {
+		this.quantity++;
+	}
+
+	/**
+	 * Decreases the quantity of the food item by 1 unit. Throws Exception if value
+	 * is less than 0 minimum.
+	 */
+	public void decrementQuantity() {
+		if (this.quantity > 0) {
+			this.quantity--;
+		} else {
+			throw new IllegalStateException("Quantity can't be less than 0.");
+		}
+
+	}
+
+	/**
 	 * Returns the string representation of the food item and displays it in
 	 * ListView.
-	 * 
 	 */
 	@Override
 	public String toString() {
