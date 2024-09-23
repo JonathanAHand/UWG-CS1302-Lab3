@@ -7,29 +7,28 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.MainWindow">
+<AnchorPane prefHeight="458.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindow">
    
-    <Label layoutX="20.0" layoutY="20.0" text="Food Name:"/>
+    <Label layoutX="20.0" layoutY="20.0" text="Food Name:" />
 
-    <TextField fx:id="foodNameTextField" layoutX="120.0" layoutY="16.0" promptText="Enter food name"/>
+    <TextField fx:id="foodNameTextField" layoutX="120.0" layoutY="16.0" promptText="Enter food name" />
 
-    <Label layoutX="20.0" layoutY="60.0" text="Food Type:"/>
+    <Label layoutX="20.0" layoutY="60.0" text="Food Type:" />
 
-    <ComboBox fx:id="foodTypeComboBox" layoutX="120.0" layoutY="56.0" prefWidth="150.0">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Vegetable"/>
-                <String fx:value="Meat"/>
-                <String fx:value="Bread"/>
-                <String fx:value="Fruit"/>
-                <String fx:value="Dessert"/>
-                <String fx:value="Ingredient"/>
-            </FXCollections>
-        </items>
-    </ComboBox>
+    <ComboBox fx:id="foodTypeComboBox" layoutX="120.0" layoutY="56.0" prefWidth="150.0" promptText="Enter food type" />
 
-    <Button layoutX="120.0" layoutY="100.0" text="Add Food" onAction="#handleAddFood"/>
+    <Button layoutX="120.0" layoutY="100.0" onAction="#handleAddFood" text="Add Food" />
 
-    <ListView fx:id="foodListView" layoutX="20.0" layoutY="140.0" prefHeight="200.0" prefWidth="250.0"/>
+    <ListView fx:id="foodListView" layoutX="20.0" layoutY="230.0" prefHeight="200.0" prefWidth="250.0" />
+    
+    <Label layoutX="20.0" layoutY="200.0" text="Set Quantity:" />
+    
+    <TextField fx:id="setQuantityTextField" layoutX="120.0" layoutY="196.0" promptText="Enter new quantity" />
+    
+    <Button layoutX="300.0" layoutY="196.0" onAction="#handleSetQuantity" text="Set Quantity" />
+    
+    <Button layoutX="300.0" layoutY="230.0" onAction="#handleIncrementQuantity" text="Increment Quantity" />
+    
+    <Button layoutX="300.0" layoutY="260.0" onAction="#handleDecrementQuantity" text="Decrement Quantity" />
+    
 </AnchorPane>

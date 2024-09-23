@@ -6,6 +6,7 @@ package view;
  * @author jhand1
  * @version 1.0
  */
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -30,7 +31,7 @@ public class MainWindow {
 
 	@FXML
 	private void initialize() {
-		foodTypeComboBox.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient");
+		foodTypeComboBox.setItems(FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
 	}
 
 	/**
@@ -49,11 +50,11 @@ public class MainWindow {
 
 				boolean wasFound = false;
 				for (Food food : foodListView.getItems()) {
-//					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
-//						food.incrementQuantity();
-//						wasFound = true;
-//						break;
-//					}
+					if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
+						food.incrementQuantity();
+						wasFound = true;
+						break;
+					}
 				}
 
 				if (!wasFound) {
