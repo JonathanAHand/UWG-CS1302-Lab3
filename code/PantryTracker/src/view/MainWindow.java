@@ -1,6 +1,7 @@
 package view;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Code behind for the MainWindow of the application.
@@ -9,13 +10,13 @@ import javafx.collections.FXCollections;
  * @version 1.0
  */
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import model.Food;
+import utility.PantryUtility;
 
 public class MainWindow {
 
@@ -169,12 +170,20 @@ public class MainWindow {
 			showErrorAlert("No item was selected.", "PLease select a food item for removal.");
 		}
 	}
-	
+
 	/**
-	 * Displays total item count of food items in the Pantry.
+	 * Displays total item count of food items in the Pantry within a pop-up window.
 	 */
 	public void handleViewItemCount() {
+		ObservableList<Food> foodList = foodListView.getItems();
 		
+		int totalQuantity = PantryUtility.calculateTotalQuantity(foodList);
+		
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Total Pantry Item Count");
+		alert.setHeaderText(null);
+		alert.setContentText("The total quantity of food items currently in the Pantry is: " + totalQuantity);
+		alert.showAndWait();
 	}
 
 	/**
