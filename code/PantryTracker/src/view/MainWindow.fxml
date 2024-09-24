@@ -7,29 +7,44 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="458.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindow">
-   
-    <Label layoutX="20.0" layoutY="20.0" text="Food Name:" />
+<AnchorPane prefHeight="458.0" prefWidth="500.0"
+	xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="view.MainWindow">
 
-    <TextField fx:id="foodNameTextField" layoutX="120.0" layoutY="16.0" promptText="Enter food name" />
+	<Label layoutX="22.0" layoutY="20.0" text="Food Name:" />
 
-    <Label layoutX="20.0" layoutY="60.0" text="Food Type:" />
+	<TextField fx:id="foodNameTextField" layoutX="120.0"
+		layoutY="16.0" promptText="Enter food name" />
 
-    <ComboBox fx:id="foodTypeComboBox" layoutX="120.0" layoutY="56.0" prefWidth="150.0" promptText="Enter food type" />
+	<Label layoutX="25.0" layoutY="60.0" text="Food Type:" />
 
-    <Button layoutX="120.0" layoutY="100.0" onAction="#handleAddFood" text="Add Food" />
+	<ComboBox fx:id="foodTypeComboBox" layoutX="120.0"
+		layoutY="56.0" prefWidth="150.0" promptText="Enter food type" />
 
-    <ListView fx:id="foodListView" layoutX="20.0" layoutY="230.0" prefHeight="200.0" prefWidth="250.0" />
-    
-    <Label layoutX="20.0" layoutY="200.0" text="Set Quantity:" />
-    
-    <TextField fx:id="setQuantityTextField" layoutX="120.0" layoutY="196.0" promptText="Enter new quantity" />
-    
-    <Button layoutX="300.0" layoutY="196.0" onAction="#handleSetQuantity" text="Set Quantity" />
-    
-    <Button layoutX="300.0" layoutY="230.0" onAction="#handleIncrementQuantity" text="Increment Quantity" />
-    
-    <Button layoutX="300.0" layoutY="260.0" onAction="#handleDecrementQuantity" text="Decrement Quantity" />
-   <Button layoutX="119.0" layoutY="141.0" onAction="#handleRemoveFood" text=" Remove Food" />
-    
+	<Button layoutX="120.0" layoutY="100.0"
+		onAction="#handleAddFood" text="Add Food" />
+
+	<ListView fx:id="foodListView" layoutX="20.0" layoutY="230.0"
+		prefHeight="200.0" prefWidth="250.0" />
+
+	<Label layoutX="20.0" layoutY="200.0" text="Set Quantity:" />
+
+	<TextField fx:id="setQuantityTextField" layoutX="120.0"
+		layoutY="196.0" promptText="Enter new quantity" />
+
+	<Button layoutX="304.0" layoutY="196.0"
+		onAction="#handleSetQuantity" text="Set Quantity" />
+
+	<Button layoutX="304.0" layoutY="229.0"
+		onAction="#handleIncrementQuantity" text="Increment Quantity" />
+
+	<Button layoutX="302.0" layoutY="271.0"
+		onAction="#handleDecrementQuantity" text="Decrement Quantity" />
+	
+	<Button layoutX="119.0" layoutY="141.0"
+		onAction="#handleRemoveFood" text=" Remove Food" />
+	
+	<Button layoutX="302.0" layoutY="373.0" 
+		onAction="#handleViewItemCount" text="View Item Count" />
+
 </AnchorPane>

@@ -1,12 +1,14 @@
 package view;
 
+import javafx.collections.FXCollections;
+
 /**
  * Code behind for the MainWindow of the application.
  * 
  * @author jhand1
  * @version 1.0
  */
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -166,6 +168,13 @@ public class MainWindow {
 		} catch (NullPointerException e) {
 			showErrorAlert("No item was selected.", "PLease select a food item for removal.");
 		}
+	}
+	
+	/**
+	 * Displays total item count of food items in the Pantry.
+	 */
+	public void handleViewItemCount() {
+		
 	}
 
 	/**
