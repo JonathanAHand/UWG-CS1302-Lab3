@@ -31,7 +31,8 @@ public class MainWindow {
 
 	@FXML
 	private void initialize() {
-		foodTypeComboBox.setItems(FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
+		foodTypeComboBox.setItems(
+				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
 	}
 
 	/**
@@ -148,12 +149,23 @@ public class MainWindow {
 			showErrorAlert("No Item Selected", "Please select a food item from the list.");
 		}
 	}
-	
+
 	/**
 	 * Removes a selected food item from the pantry.
 	 */
+	@FXML
 	public void handleRemoveFood() {
-		
+		try {
+			Food selectedFood = foodListView.getSelectionModel().getSelectedItem();
+
+			if (selectedFood != null) {
+				foodListView.getItems().remove(selectedFood);
+			} else {
+				throw new NullPointerException("No food item was selected.");
+			}
+		} catch (NullPointerException e) {
+			showErrorAlert("No item was selected.", "PLease select a food item for removal.");
+		}
 	}
 
 	/**

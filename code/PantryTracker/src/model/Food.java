@@ -2,6 +2,7 @@ package model;
 
 /**
  * Represents a food item for the pantry with a name, type, and quantity.
+ * Each item has methods for manipulation of quantity.
  * 
  * @author jhand1
  * @version 1.0
