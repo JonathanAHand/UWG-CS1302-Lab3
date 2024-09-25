@@ -1,0 +1,11 @@
+--module-path
+"C:\\eclipse\\/javafx-sdk/lib"
+--add-modules
+javafx.controls,javafx.fxml
+-Dfile.encoding=UTF-8
+-Dstdout.encoding=UTF-8
+-Dstderr.encoding=UTF-8
+-classpath
+"C:\\Users\\jhand1\\Desktop\\git-repos\\UWG-CS1302-Lab3\\code\\PantryTracker\\bin;C:\\eclipse\\plugins\\org.eclipse.fx.ide.css.jfx8_3.10.0.202303150700.jar;C:\\eclipse\\javafx-sdk\\lib\\javafx.graphics.jar;C:\\eclipse\\javafx-sdk\\lib\\javafx.fxml.jar;C:\\eclipse\\javafx-sdk\\lib\\javafx.controls.jar;C:\\eclipse\\javafx-sdk\\lib\\javafx.base.jar;C:\\eclipse\\plugins\\junit-jupiter-api_5.10.2.jar;C:\\eclipse\\plugins\\junit-jupiter-engine_5.10.2.jar;C:\\eclipse\\plugins\\junit-jupiter-migrationsupport_5.10.2.jar;C:\\eclipse\\plugins\\junit-jupiter-params_5.10.2.jar;C:\\eclipse\\plugins\\junit-platform-commons_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-engine_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-launcher_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-runner_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-suite-api_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-suite-engine_1.10.2.jar;C:\\eclipse\\plugins\\junit-platform-suite-commons_1.10.2.jar;C:\\eclipse\\plugins\\junit-vintage-engine_5.10.2.jar;C:\\eclipse\\plugins\\org.opentest4j_1.3.0.jar;C:\\eclipse\\plugins\\org.apiguardian.api_1.1.2.jar;C:\\eclipse\\plugins\\org.junit_4.13.2.v20230809-1000.jar;C:\\eclipse\\plugins\\org.hamcrest_2.2.0.jar;C:\\eclipse\\plugins\\org.hamcrest.core_2.2.0.v20230809-1000.jar"
+-XX:+ShowCodeDetailsInExceptionMessages
+main.Main

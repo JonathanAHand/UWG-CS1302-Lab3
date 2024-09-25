@@ -23,6 +23,7 @@ class TestFoodConstructor {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
 			new Food(null, "Ingredient");
 		});
+		
 		assertEquals("Name must be neither null nor empty.", exception.getMessage());
 	}
 
@@ -31,6 +32,7 @@ class TestFoodConstructor {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
 			new Food("Rocky Mountain Oysters", null);
 		});
+		
 		assertEquals("Type must be neither null nor empty.", exception.getMessage());
 	}
 
@@ -39,6 +41,7 @@ class TestFoodConstructor {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
 			new Food("Rocky Mountain Oysters", "");
 		});
+		
 		assertEquals("Type must be neither null nor empty.", exception.getMessage());
 	}
 
@@ -47,6 +50,7 @@ class TestFoodConstructor {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
 			new Food("", "Fruit");
 		});
+		
 		assertEquals("Name must be neither null nor empty.", exception.getMessage());
 	}
 }

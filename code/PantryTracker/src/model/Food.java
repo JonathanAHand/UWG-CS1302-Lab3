@@ -78,7 +78,8 @@ public class Food {
 	}
 
 	/**
-	 * Increases the quantity of the food item in the pantry by 1 unit.
+	 * Increases the quantity of the food item in the pantry by 1 unit. No upper
+	 * bound exists.
 	 */
 	public void incrementQuantity() {
 		this.quantity++;
@@ -94,7 +95,6 @@ public class Food {
 		} else {
 			throw new IllegalStateException("Quantity can't be less than 0.");
 		}
-
 	}
 
 	/**
