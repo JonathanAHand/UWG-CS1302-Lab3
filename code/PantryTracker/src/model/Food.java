@@ -1,8 +1,10 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 /**
- * Represents a food item for the pantry with a name, type, and quantity.
- * Each item has methods for manipulation of quantity.
+ * Represents a food item for the pantry with a name, type, and quantity. Each
+ * item has methods for manipulation of quantity.
  * 
  * @author jhand1
  * @version 1.0
@@ -32,7 +34,7 @@ public class Food {
 		}
 		this.name = name;
 		this.type = type;
-		this.quantity = 0;
+		this.quantity = 1;
 	}
 
 	/**
@@ -41,7 +43,7 @@ public class Food {
 	 * @return the name of the food item.
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -50,7 +52,7 @@ public class Food {
 	 * @return the type of the food item.
 	 */
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	/**
@@ -59,7 +61,7 @@ public class Food {
 	 * @return the quantity of the food item.
 	 */
 	public int getQuantity() {
-		return quantity;
+		return this.quantity;
 	}
 
 	/**
@@ -96,11 +98,32 @@ public class Food {
 	}
 
 	/**
+	 * Adds food item
+	 * 
+	 * @param foodList The list of food items in the Pantry.
+	 * @param newFood  The new food item to be added to the Pantry.
+	 */
+	public static void addFood(ObservableList<Food> foodList, Food newFood) {
+		boolean wasFound = false;
+		for (Food food : foodList) {
+			if (food.getName().equals(newFood.getName()) && food.getType().equals(newFood.getType())) {
+				food.incrementQuantity();
+				wasFound = true;
+				break;
+			}
+		}
+
+		if (!wasFound) {
+			foodList.add(newFood);
+		}
+	}
+
+	/**
 	 * Returns the string representation of the food item and displays it in
 	 * ListView.
 	 */
 	@Override
 	public String toString() {
-		return name + " – " + quantity;
+		return this.name + " – " + this.quantity;
 	}
 }

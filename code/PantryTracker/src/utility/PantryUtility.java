@@ -18,6 +18,10 @@ public class PantryUtility {
 	 * @return the sum of the quantity of all the food items in the Pantry list.
 	 */
 	public static int calculateTotalQuantity(ObservableList<Food> foodList) {
+		if (foodList == null) {
+			throw new NullPointerException("The food list cannot be null.");
+		}
+
 		int totalQuantity = 0;
 		for (Food foodItems : foodList) {
 			totalQuantity += foodItems.getQuantity();
