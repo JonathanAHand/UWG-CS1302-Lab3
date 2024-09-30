@@ -15,9 +15,10 @@ public class BillTextifier {
 	/**
 	 * Return a String summarizing the bill.
 	 * 
-	 * @param bill the bill object containing the items to summarize.
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param bill the bill to be summarized
 	 * 
 	 * @return a String summarizing the bill
 	 */
@@ -25,28 +26,25 @@ public class BillTextifier {
 		if (bill == null) {
 			throw new IllegalArgumentException("Must provide a valid Bill");
 		}
-
-		BillItem[] items = bill.getItems();
-
-		String text = "ITEMS" + System.lineSeparator();
+		String text = "SERVER " + bill.getServerName() + System.lineSeparator();
+		text += "ITEMS" + System.lineSeparator();
 		for (BillItem item : bill.getItems()) {
 			if (item != null) {
-				text += item.getName() + " - " + BillTextifier.convertToCurrency(item.getAmount())
+				text += item.getName() + " - " + BillTextifier.formatAsCurrency(item.getAmount())
 						+ System.lineSeparator();
 			}
 		}
 
 		text += System.lineSeparator();
-		text += "SUBTOTAL - " + BillTextifier.convertToCurrency(BillCalculator.getSubTotal(items))
-				+ System.lineSeparator();
-		text += "TAX - " + BillTextifier.convertToCurrency(BillCalculator.getTax(items)) + System.lineSeparator();
-		text += "TIP - " + BillTextifier.convertToCurrency(BillCalculator.getTip(items)) + System.lineSeparator();
-		text += "TOTAL - " + BillTextifier.convertToCurrency(BillCalculator.getTotal(items));
+		text += "SUBTOTAL - " + BillTextifier.formatAsCurrency(BillCalculator.getSubTotal(bill.getItems())) + System.lineSeparator();
+		text += "TAX - " + BillTextifier.formatAsCurrency(BillCalculator.getTax(bill.getItems())) + System.lineSeparator();
+		text += "TIP - " + BillTextifier.formatAsCurrency(BillCalculator.getTip(bill.getItems())) + System.lineSeparator();
+		text += "TOTAL - " + BillTextifier.formatAsCurrency(BillCalculator.getTotal(bill.getItems()));
 
 		return text;
 	}
 
-	private static String convertToCurrency(double amount) {
+	private static String formatAsCurrency(double amount) {
 		String result = "$";
 		int number = ((int) (amount * 100));
 		int dollars = number / 100;

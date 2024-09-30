@@ -6,13 +6,13 @@ package edu.westga.cs1302.bill.model;
  * @version Fall 2024
  */
 public class BillItem {
-	private final String name;
-	private final double amount;
+	private String name;
+	private double amount;
 	
 	/** create anew bill item with the provided name and amount
 	 * 
-	 * @precondition name != null &&
-	 * 				 amount > 0
+	 * @precondition name != null && !name.isEmpty() &&
+	 * 				 amount >= 0.01
 	 * @postcondition getName() == name &&
 	 * 				  getAmount() == amount
 	 * 
@@ -23,13 +23,16 @@ public class BillItem {
 		if (name == null) {
 			throw new IllegalArgumentException("name must not be null.");
 		}
-		if (amount <= 0) {
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException("name must not be empty.");
+		}
+		if (amount < 0.01) {
 			throw new IllegalArgumentException("amount must be positive, but was " + amount);
 		}
 		this.name = name;
 		this.amount = amount;
 	}
-	
+
 	/** Return the name for the bill item
 	 * 
 	 * @precondition none
@@ -40,7 +43,7 @@ public class BillItem {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/** Return the amount for the bill item
 	 * 
 	 * @precondition none

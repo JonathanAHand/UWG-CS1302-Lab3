@@ -46,19 +46,5 @@ class TestAddItem {
 		assertEquals("2", secondItem.getName(), "checking the name of the first item in the bill");
 		assertEquals(6, secondItem.getAmount(), "checking the name of the first item in the bill");
 	}
-	
-	@Test
-	void testAddTooManyItems() {
-		Bill bill = new Bill();
-		BillItem item1 = new BillItem("1", 5);
-		BillItem item2 = new BillItem("2", 6);
-		BillItem item3 = new BillItem("3", 7);
-		BillItem item4 = new BillItem("4", 8);
-		bill.addItem(item1);
-		bill.addItem(item2);
-		bill.addItem(item3);
-		
-		assertThrows(IllegalStateException.class, ()->{bill.addItem(item4);});
-	}
 
 }

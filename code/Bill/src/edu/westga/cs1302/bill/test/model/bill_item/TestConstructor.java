@@ -12,10 +12,15 @@ class TestConstructor {
 	void testNullName() {
 		assertThrows(IllegalArgumentException.class, ()->{new BillItem(null, 5);});
 	}
+
+	@Test
+	void testEmptyName() {
+		assertThrows(IllegalArgumentException.class, ()->{new BillItem("", 5);});
+	}
 	
 	@Test
 	void testAmountTooLow() {
-		assertThrows(IllegalArgumentException.class, ()->{new BillItem("abc", 0);});
+		assertThrows(IllegalArgumentException.class, ()->{new BillItem("abc", 0.009);});
 	}
 	
 	@Test

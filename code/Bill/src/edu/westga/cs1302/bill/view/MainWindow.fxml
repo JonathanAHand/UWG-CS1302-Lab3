@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane minHeight="300.0" minWidth="289.0" prefHeight="334.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.bill.view.MainWindow">
+   <children>
+      <Button layoutX="129.0" layoutY="39.0" mnemonicParsing="false" onAction="#addItem" prefHeight="74.0" prefWidth="66.0" text="Add Item" />
+      <TextField fx:id="name" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="99.0" promptText="Enter Name" />
+      <Label layoutX="48.0" layoutY="14.0" text="Name" />
+      <TextField fx:id="amount" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="99.0" promptText="Enter Amount" />
+      <Label layoutX="42.0" layoutY="67.0" text="Amount" />
+      <Button layoutX="135.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveBillData" text="Save" />
+      <TextArea fx:id="receiptArea" layoutX="14.0" layoutY="120.0" prefHeight="168.0" prefWidth="282.0" />
+      <ComboBox fx:id="serverName" layoutX="206.0" layoutY="63.0" onAction="#selectServer" prefHeight="25.0" prefWidth="88.0" />
+      <Label layoutX="233.0" layoutY="43.0" text="Server" />
+      <Line endX="28.0" endY="-152.0" layoutX="173.0" layoutY="160.0" startX="28.0" startY="-46.0" />
+   </children>
+</AnchorPane>

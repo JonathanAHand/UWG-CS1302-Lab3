@@ -1,0 +1,281 @@
+commit bfa95a129369bafa1f26f200f39f18998976b2d0
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 25 18:28:50 2024 -0400
+
+    Updated test cases.
+    
+    Created additional test cases for model class for
+    addFood, setQuantity, incrementQuantity and
+    decrementQuantity for basic functionality.
+    Created test case in PantryUtility for method
+    calculateTotalQuantity testing functionality.
+
+commit b259bd4df6186a1614805acfa3ba6c6d80ca17b3
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 25 13:37:24 2024 -0400
+
+    Created tests for model class and *OTHER CHANGES*
+    
+    Created Junit test cases for Food Constructor.
+    Reactivated CheckStyle and corrected existing
+    warnings throughout the project.
+    Refactored MainWindow methods for adding food,
+    setting, incrementing, and decrementing the
+    quantites to resolve separation of concerns
+    issues. Methods now call from logic found in Food
+    class and no longer any computational aspects.
+    Created new method addFood in Food class and
+    correctly implemented other existing methods from
+    Food class to methods in MainWindow.
+
+commit 0f19d5bc5289f0a9384666e8fb43e56474b474e3
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Sep 24 00:48:34 2024 -0400
+
+    Connected logic and UI for updating food quantity
+    
+    Implemented logic to display the total quantity
+    of food items in the Pantry on a pop-up display.
+
+commit d2323685caa22124b40c2cd32973d6e01bd8ab5a
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 22:00:51 2024 -0400
+
+    Created new static method in utility class.
+    
+    Added new utility package/class and static method
+    calculateTotalQuantity to sum up the total of all
+    items listed in the Pantry.
+
+commit 879fa9fdd32549e063c9395798fc1b595baf761e
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 20:57:34 2024 -0400
+
+    Implemented UI for counting Pantry items.
+    
+    Updated FXML by creating new button for counting
+    items. Updated MainWindow class by creating an
+    associated method for same.
+    Implementation pending.
+
+commit 7a231a8dfc237a3348f9454ef1564642df9dc00c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 20:14:27 2024 -0400
+
+    Implemented UI for removing food.
+    
+    Updated MainWindow to implement logic for removal
+    of the selected food item from the ListView in
+    pantry.
+
+commit aaab21c59d6d5747e11697ad93ddbd19ec5dc6c5
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 19:24:11 2024 -0400
+
+    Updated UI for remove food function.
+    
+    Created buttton in UI for removing selected food
+    item. Updated MainWindow by adding corresponding
+    method for same feature. Pending implementation.
+
+commit f8baa62d4830e6b4d0e7fefb31d61fe5342d0ac6
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 18:24:30 2024 -0400
+
+    Restructured FXML file to work with methods.
+    
+    Reconfigured project build path to correctly
+    compile and display Pantry. All incorrectly
+    configured JAR files moved from Classpath to
+    ModulePath to function normally.
+    Updated FXML file from temporary placeholder to
+    actual project code. Previous file replaced.
+    Business logic methods for setting, incrementing,
+    and decrementing food quantity were handled
+    previously and implemented during creation of
+    UI implementation.
+
+commit 2041add47e2052581b2c42bcf1d87edc1d289e57
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 00:29:47 2024 -0400
+
+    Updated Business Logic for updating food quantity
+    
+    Created methods in Food Class for the following:
+    Setting food quantity, incrementing food
+    quantity, and decrementing food quantity.
+
+commit 876380d9eadbad4ca3ecd5bee51b47ecbfa75e34
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Sep 22 23:48:05 2024 -0400
+
+    Implemented UI for Pantry buttons
+    
+    Created Label, TextField and Button allowing user
+    to set quantity. Associated method for function
+    created in MainWindow class.
+    Created individual buttons to allow user to
+    increase or decrease the quantity of food items
+    by 1 unit. Updated MainWindow class with
+    associated method.
+
+commit ed37e5c8ee39398a88e9f1743784297d0d53ef11
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 23:00:17 2024 -0400
+
+    Connected UI to business logic for adding food.
+    
+     Updated MainWindow class to implement method
+     for adding food and initialize the ComboBox
+     of food types.
+
+commit 616e21fcdb3a5175084fc8c85a79dfecf84bff09
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 22:10:42 2024 -0400
+
+    Added actual Business logic for storing food.
+    
+    Restored suspended changes from previous work to
+    have Food class created correctly and handle only
+    aspects at hand.
+    Constructor, getter methods for fields/quantity
+    as well as method to display and change quantity.
+
+commit 5dd4ef701a85207aa3a953af3d02513aa4c4ada4
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 21:33:45 2024 -0400
+
+    Added business logic for storing food.
+    
+    Originally intended to add logic for storing
+    food. Food class temporarily suspended intended
+    functionality to troubleshoot logic located
+    elsewhere in the system. Will restore on next
+    file add/commit.
+
+commit 4582ecd245e2176ca366a96b61785f57a410d7e9
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 16:31:44 2024 -0400
+
+    Added UI for adding food to the pantryTracker.
+    
+    Created MainWindow.java/fxml with TextField for
+    entering food name.
+    Added ComboBox in the UI for choosing food type
+    and ListView to display the food items.
+    Linked the fxml to related fields in MainWindow.
+    JARS config build issue between Class/Modulepath
+    causing issue with compilation -- to be fixed.
+
+commit dd82d3f3bc6c2752e1f6d5d9b27c4560de3364c7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Sep 19 17:55:30 2024 -0400
+
+    Created PantryTracker Project
+    
+    Made new Java project named PantryTracker.
+    Re-added gitignore file.
+
+commit a6dbaae77072ee5b81e098905bcf8b87dc559007
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 18 23:04:43 2024 -0400
+
+    Modified Bill calculations to static methods/TestGetSubtotal
+    
+    Implemented BillCalculator class to handle calculations of
+    the subtotal, tax, tip, and total for the array of BillItem
+    objects. Previously handled in Bill class as not static. All
+    related previously existing methods are removed/replaced.
+    Created Junit test cases for all newly created methods for
+    calculating subtotal, tip, tax, and total testing function.
+    Corrected checkstyle errors throughout.
+
+commit fdce1bbcda49ab29a8144ccfa99e63e6c1f741d5
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 18 13:12:56 2024 -0400
+
+    Add Bill file to project and final modifiers
+    
+    Copied Bill file to project. Converted fields of the
+    BillItem class to be final ensuring that once the fields
+    is set in the constructor that it can't be changed.
+
+commit dbe61c29ec1838f59437b1e9e528e2e0ee96c299
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 18:31:46 2024 -0400
+
+    Added URL to README
+
+commit 68242b3f86824d7fa7ccd63906f739755503732f
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 18:18:44 2024 -0400
+
+    Added Test Cases
+    
+    Created test cases for logic of grade average
+    calculation.
+
+commit 7663a28055bada8ff4d7d159d7c668d083beef04
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 12:40:11 2024 -0400
+
+    Refactor code to fix separation of concerns issue
+    
+    Separated out the calculateStudentGradeAverage()
+    method. Logic aspects are now handled by
+    static method in Student class and called by
+    MainWindow class to update and display.
+    Changed Window_Title to display Class Student
+    Roster.
+
+commit b68e4c060e5f60b0d84f9010c5e9f7893989f48d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 9 12:14:44 2024 -0400
+
+    Added Course Grade Statistics feature
+    
+    Added feature to display the running average of
+    all students in the class roster as they are
+    added or removed from the list.
+
+commit c5a08f1f9b4f00c9bbbb3304ce0a1d0281a144c7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Sep 8 19:54:01 2024 -0400
+
+    Added Student Grades
+    
+    Added support for each student's name to have a
+    grade added to it. Constructor updated for this.
+    Test cases updated to check for required fields
+    of this support.
+    Completed feature to remove student's name from
+    the list.
+    Modified buttons and labels in fxml file to read
+    more easily and formatted per OCD requirements.
+
+commit 178f292bd84557b8c191c3fbaa1088e27df993d4
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 16:37:21 2024 -0400
+
+    Adding additional base files
+    
+    Adding gitignore and license file to the repos.
+
+commit b5a9bf4a6c1247de89396c59b30f46659a1f6fc7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 15:53:55 2024 -0400
+
+    Adding Base Project
+    
+    Adding Eclipse project to /code/
+
+commit 640f574922d239a68ae81fdd09e29bb9bf054ae8
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 15:42:50 2024 -0400
+
+    Adding Base Project Structure
+    
+    Initializing repos for the project.
+    Creating the README for the project (/README.md).
+    Creating the code directory for the project
+    (/code).

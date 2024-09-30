@@ -1,0 +1,2 @@
+Server Name: No Server Set
+Item Name: aItem Amount: 1.0

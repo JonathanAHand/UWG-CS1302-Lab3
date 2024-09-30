@@ -1,31 +1,33 @@
 package edu.westga.cs1302.bill.model;
 
-/**
- * Provides static methods to handle the separate calculation of the BillItem
- * sub total, tip amount, tax amount, and the total combined amount for all
- * categories.
+/** Calculates amounts for bills
  * 
- * @author jhand1
- * @version 1.0
- * 
+ * @author CS 1302
+ * @version Fall 2024
  */
 public class BillCalculator {
-	private static final double TAX_RATE = 0.1;
-	private static final double TIP_RATE = 0.2;
+
+	private static final double TIP_PERCENT = 0.2;
+	private static final double TAX_PERCENT = 0.1;
 
 	/**
-	 * Calculates the sub total amount for an array of BillItem items.
-	 *
-	 * @param items the items in the BillItems array.
-	 * @return the sub total amount of all the items.
+	 * Return the subtotal for the bill
+	 * 
+	 * @precondition items != null
+	 * 
+	 * @param items the set of items to generate the subtotal for
+	 * 
+	 * @return the subtotal for the bill
+	 * 
+	 * @throws IllegalArgumentException if precondition is violated
 	 */
-	public static double getSubTotal(BillItem[] items) {
+	public static double getSubTotal(BillItem[] items) throws IllegalArgumentException {
 		if (items == null) {
-			throw new IllegalArgumentException("List must contain at least one valid item.");
+			throw new IllegalArgumentException("items must not be null");
 		}
 		double subTotal = 0.0;
 		for (BillItem item : items) {
-			if (items != null) {
+			if (item != null) {
 				subTotal += item.getAmount();
 			}
 		}
@@ -33,39 +35,42 @@ public class BillCalculator {
 	}
 
 	/**
-	 * Calculates the tax amount for an array of BillItem items.
+	 * Return the tax for the bill
 	 * 
-	 * @param items the array of BillItem items.
-	 * @return the tax amount on the items.
+	 * @precondition items != null
+	 * 
+	 * @param items the set of items to generate the subtotal for
+	 * 
+	 * @return the tax for the bill
 	 */
 	public static double getTax(BillItem[] items) {
-		double subTotal = getSubTotal(items);
-		return subTotal * TAX_RATE;
+		return BillCalculator.getSubTotal(items) * TAX_PERCENT;
 	}
 
 	/**
-	 * Calculates the tip amount for an array of BillItem items.
+	 * Return the tip for the bill
 	 * 
-	 * @param items the array of BillItem items.
-	 * @return the tip amount on the items.
+	 * @precondition items != null
+	 * 
+	 * @param items the set of items to generate the subtotal for
+	 * 
+	 * @return the tip for the bill
 	 */
 	public static double getTip(BillItem[] items) {
-		double subTotal = getSubTotal(items);
-		return subTotal * TIP_RATE;
+		return BillCalculator.getSubTotal(items) * TIP_PERCENT;
 	}
 
 	/**
-	 * Calculates the total amount for an array of BillItem items.
+	 * Return the total for the bill
 	 * 
-	 * @param items the array of BillItem items.
-	 * @return the total combined amount for the items.
+	 * @precondition items != null
+	 * 
+	 * @param items the set of items to generate the subtotal for
+	 * 
+	 * @return the total for the bill
 	 */
 	public static double getTotal(BillItem[] items) {
-		double subTotal = getSubTotal(items);
-		double tax = getTax(items);
-		double tip = getTip(items);
-		return subTotal + tax + tip;
-
+		return BillCalculator.getSubTotal(items) + BillCalculator.getTax(items) + BillCalculator.getTip(items);
 	}
 
 }

@@ -16,12 +16,31 @@ class TestGetText {
 	}
 
 	@Test
-	void testBillWithNoItems() {
+	void testBillWithNoItemsDefaultServer() {
 		Bill bill = new Bill();
 		
 		String result = BillTextifier.getText(bill);
 		
-		String expected = "ITEMS" + System.lineSeparator()
+		String expected = "SERVER No Server Set" + System.lineSeparator()
+				+ "ITEMS" + System.lineSeparator()
+				+ System.lineSeparator()
+				+ "SUBTOTAL - $0.00" + System.lineSeparator()
+				+ "TAX - $0.00" + System.lineSeparator()
+				+ "TIP - $0.00" + System.lineSeparator()
+				+ "TOTAL - $0.00";
+		
+		assertEquals(expected, result);
+	}
+
+	@Test
+	void testBillWithNoItemsNewServer() {
+		Bill bill = new Bill();
+		bill.setServerName("bob");
+		
+		String result = BillTextifier.getText(bill);
+		
+		String expected = "SERVER bob" + System.lineSeparator()
+				+ "ITEMS" + System.lineSeparator()
 				+ System.lineSeparator()
 				+ "SUBTOTAL - $0.00" + System.lineSeparator()
 				+ "TAX - $0.00" + System.lineSeparator()
@@ -39,8 +58,9 @@ class TestGetText {
 		
 		String result = BillTextifier.getText(bill);
 
-		
-		String expected = "ITEMS" + System.lineSeparator()
+
+		String expected = "SERVER No Server Set" + System.lineSeparator()
+				+ "ITEMS" + System.lineSeparator()
 				+ "1 - $5.00" + System.lineSeparator()
 				+ System.lineSeparator()
 				+ "SUBTOTAL - $5.00" + System.lineSeparator()
@@ -61,7 +81,8 @@ class TestGetText {
 		
 		String result = BillTextifier.getText(bill);
 
-		String expected = "ITEMS" + System.lineSeparator()
+		String expected = "SERVER No Server Set" + System.lineSeparator()
+				+ "ITEMS" + System.lineSeparator()
 				+ "1 - $5.00" + System.lineSeparator()
 				+ "2 - $6.00" + System.lineSeparator()
 				+ System.lineSeparator()
