@@ -30,10 +30,10 @@ public class BillPersistenceManager {
 		}
 		
 		try (FileWriter writer = new FileWriter(DATA_FILE)) {
-			writer.write("Server Name: " + bill.getServerName() + "\n");
+			writer.write(bill.getServerName() + ",");
 			
 			for (BillItem item : bill.getItems()) {
-				writer.write("Item Name: " + item.getName() + ",Item Amount: " + item.getAmount() + "\n");
+				writer.write(item.getName() + "," + item.getAmount() + ",");
 			}
 		}
 	}

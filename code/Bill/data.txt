@@ -1,2 +1,1 @@
-Server Name: No Server Set
-Item Name: aItem Amount: 1.0
+Bob,Apple,2.0,
