@@ -55,9 +55,9 @@ public class BillPersistenceManager {
 	 */
 	public static Bill loadBillData() throws FileNotFoundException, IOException {
 		File inputFile = new File(DATA_FILE);
-		if (inputFile.exists() || inputFile.length() == 0) {
+		/*if (inputFile.exists() || inputFile.length() == 0) {
 			return new Bill();
-		}
+		}*/
 		Bill bill = new Bill();
 		try (Scanner reader = new Scanner(inputFile)) {
 
