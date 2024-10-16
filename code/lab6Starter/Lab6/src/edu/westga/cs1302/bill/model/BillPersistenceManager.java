@@ -1,5 +1,6 @@
 package edu.westga.cs1302.bill.model;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -34,6 +35,6 @@ public abstract class BillPersistenceManager {
 	 * @return the bill loaded if file is in valid format a new bill if file is not
 	 *         in valid format or does not exist
 	 */
-	public abstract Bill loadBillData();
+	public abstract Bill loadBillData() throws IOException, FileNotFoundException;
 
 }

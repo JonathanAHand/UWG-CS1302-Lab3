@@ -1,2 +1,6 @@
-Bob
-apples	3.0
+Alice
+Coconuts,2.0
+Bananas,3.0
+Apples,7.0
+Oranges,11.0
+Pickles,18.0

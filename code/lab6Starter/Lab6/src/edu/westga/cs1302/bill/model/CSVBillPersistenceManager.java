@@ -27,8 +27,6 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 	 */
 	@Override
 	public void saveBillData(Bill bill) throws IOException, IllegalArgumentException {
-		File file = new File(DATA_FILE);
-        System.out.println("Saving to: " + file.getAbsolutePath());
 		if (bill == null) {
 			throw new IllegalArgumentException("Must provide a valid bill");
 		}
@@ -69,4 +67,3 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 	}
 
 }
-

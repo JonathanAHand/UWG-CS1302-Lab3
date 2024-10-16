@@ -1,11 +1,16 @@
 package edu.westga.cs1302.bill.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Comparator;
+
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
 import edu.westga.cs1302.bill.model.TSVBillPersistenceManager;
+import edu.westga.cs1302.bill.model.BillAscendingCostComparator;
+import edu.westga.cs1302.bill.model.BillDescendingCostComparator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,6 +38,8 @@ public class MainWindow {
 	private ComboBox<String> serverName;
 	@FXML
 	private ComboBox<String> format;
+	@FXML
+	private ComboBox<Comparator<BillItem>> orderComboBox;
 
 	@FXML
 	void addItem(ActionEvent event) {
@@ -47,6 +54,12 @@ public class MainWindow {
 		} catch (IllegalArgumentException argError) {
 			this.displayErrorPopup("Unable to add new bill item");
 		}
+	}
+
+	@FXML
+	void sortChanged(ActionEvent event) {
+		this.bill.sortBillItems(this.orderComboBox.getValue());
+		this.updateReceipt();
 	}
 
 	private void updateReceipt() {
@@ -93,6 +106,9 @@ public class MainWindow {
 		this.format.getItems().add("CSV Format");
 		this.format.getItems().add("TSV Format");
 		this.format.setValue("CSV Format");
+		this.orderComboBox.getItems().add(new BillAscendingCostComparator());
+		this.orderComboBox.getItems().add(new BillDescendingCostComparator());
+		this.orderComboBox.setValue(this.orderComboBox.getItems().get(0));
 
 		this.format.setOnAction(event -> {
 			String selectedFormat = this.format.getValue();
@@ -104,5 +120,19 @@ public class MainWindow {
 		});
 
 		this.persistenceManager = new CSVBillPersistenceManager();
+
+		try {
+			this.bill = this.persistenceManager.loadBillData();
+			this.updateReceipt();
+		} catch (FileNotFoundException fileError) {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setContentText("No save data file found, loading with no student data.");
+			alert.showAndWait();
+		} catch (IOException parseError) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("File not in valid format.");
+			alert.setContentText(parseError.getMessage());
+			alert.showAndWait();
+		}
 	}
 }
