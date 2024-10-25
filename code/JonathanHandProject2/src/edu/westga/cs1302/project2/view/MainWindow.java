@@ -15,14 +15,20 @@ import javafx.scene.control.TextField;
  * @version Fall 2024
  */
 public class MainWindow {
-	@FXML private ComboBox<String> ingredientType;
-	@FXML private ListView<Ingredient> ingredientsList;
-	@FXML private TextField ingredientName;
+	@FXML
+	private ComboBox<String> ingredientType;
+	@FXML
+	private ListView<Ingredient> ingredientsList;
+	@FXML
+	private TextField ingredientName;
+	@FXML
+	private ComboBox<String> sortCriteria;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
 		try {
-			this.ingredientsList.getItems().add(new Ingredient(this.ingredientName.getText(), this.ingredientType.getValue()));
+			this.ingredientsList.getItems()
+					.add(new Ingredient(this.ingredientName.getText(), this.ingredientType.getValue()));
 			this.ingredientName.clear();
 			this.ingredientType.getSelectionModel().clearSelection();
 		} catch (IllegalArgumentException error) {
