@@ -30,6 +30,8 @@ public class MainWindow {
 	private TextField ingredientName;
 	@FXML
 	private ComboBox<Comparator<Ingredient>> sortCriteria;
+	@FXML
+	private ListView<Ingredient> recipeIngredientsList;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -66,6 +68,9 @@ public class MainWindow {
 
 		this.sortCriteria.getItems().add(new TypeComparator());
 		this.sortCriteria.getItems().add(new NameComparator());
+
+		this.recipeIngredientsList.getItems().clear();
+
 	}
 
 	/**

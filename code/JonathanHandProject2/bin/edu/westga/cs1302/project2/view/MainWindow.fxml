@@ -34,6 +34,9 @@
 			startX="-200.0" startY="-133.0" />
 		<Label layoutX="260.0" layoutY="20.0" text="Sort by" />
 		<ComboBox fx:id="sortCriteria" layoutX="260.0" layoutY="41.0"
-			prefHeight="25.0" prefWidth="120.0" onAction="#sortChanged"/>
+			prefHeight="25.0" prefWidth="120.0" onAction="#sortChanged" />
+		<ListView fx:id="recipeIngredientsList" layoutX="300.0"
+			layoutY="100.0" prefHeight="400.0" prefWidth="200.0" />
+		<Label layoutX="300.0" layoutY="75.0" text="Recipe Ingredients" />
 	</children>
 </AnchorPane>
