@@ -32,6 +32,8 @@ public class MainWindow {
 	private ComboBox<Comparator<Ingredient>> sortCriteria;
 	@FXML
 	private ListView<Ingredient> recipeIngredientsList;
+	@FXML
+	private TextField recipeNameField;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
