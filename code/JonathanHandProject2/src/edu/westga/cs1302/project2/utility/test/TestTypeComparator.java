@@ -1,7 +1,8 @@
-package edu.westga.cs1302.project2.test.model.ingredient;
+package edu.westga.cs1302.project2.utility.test;
 
 import edu.westga.cs1302.project2.model.Ingredient;
-import edu.westga.cs1302.project2.model.TypeComparator;
+import edu.westga.cs1302.project2.utility.TypeComparator;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;

@@ -34,6 +34,6 @@
 			startX="-200.0" startY="-133.0" />
 		<Label layoutX="260.0" layoutY="20.0" text="Sort by" />
 		<ComboBox fx:id="sortCriteria" layoutX="260.0" layoutY="41.0"
-			prefHeight="25.0" prefWidth="120.0" />
+			prefHeight="25.0" prefWidth="120.0" onAction="#sortChanged"/>
 	</children>
 </AnchorPane>

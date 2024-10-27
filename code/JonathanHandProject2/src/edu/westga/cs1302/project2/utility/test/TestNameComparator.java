@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project2.test.model.ingredient;
+package edu.westga.cs1302.project2.utility.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,7 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.project2.model.Ingredient;
-import edu.westga.cs1302.project2.model.NameComparator;
+import edu.westga.cs1302.project2.utility.NameComparator;
 
 public class TestNameComparator {
 
