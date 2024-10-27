@@ -59,13 +59,17 @@ public class MainWindow {
 			this.sortIngredients();
 		}
 	}
-	
+
 	@FXML
 	void addIngredientToRecipe() {
-	    Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
-	    if (selectedIngredient != null) {
-	        this.recipeIngredientsList.getItems().add(selectedIngredient);
-	    }
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+		if (selectedIngredient != null) {
+			this.recipeIngredientsList.getItems().add(selectedIngredient);
+		}
+	}
+
+	@FXML
+	public void addRecipe() {
 	}
 
 	@FXML
