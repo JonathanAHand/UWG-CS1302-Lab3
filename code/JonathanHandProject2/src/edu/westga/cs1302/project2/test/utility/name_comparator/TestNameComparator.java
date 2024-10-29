@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project2.utility.test;
+package edu.westga.cs1302.project2.test.utility.name_comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

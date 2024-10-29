@@ -90,8 +90,7 @@ public class MainWindow {
 	/**
 	 * Sorts ingredients in ListView using the selected comparator.
 	 */
-	@FXML
-	public void sortIngredients() {
+	private void sortIngredients() {
 		Comparator<Ingredient> selectedComparator = this.sortCriteria.getSelectionModel().getSelectedItem();
 		if (selectedComparator != null) {
 			List<Ingredient> ingredients = new ArrayList<>(this.ingredientsList.getItems());

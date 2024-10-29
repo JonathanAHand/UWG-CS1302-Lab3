@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project2.utility.test;
+package edu.westga.cs1302.project2.test.utility.recipe_file_writer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

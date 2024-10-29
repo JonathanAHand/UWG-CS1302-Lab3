@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project2.utility.test;
+package edu.westga.cs1302.project2.test.utility.type_comparator;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.utility.TypeComparator;
