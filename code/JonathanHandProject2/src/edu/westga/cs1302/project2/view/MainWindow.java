@@ -109,4 +109,5 @@ public class MainWindow {
 	public void sortChanged(ActionEvent event) {
 		this.sortIngredients();
 	}
+	
 }

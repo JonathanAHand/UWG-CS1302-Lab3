@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.Recipe;
-import edu.westga.cs1302.project2.utility.RecipeFileWriter;
+import edu.westga.cs1302.project2.model.RecipeUtility;
 
 class TestConvertRecipeToString {
 
 	@Test
 	public void testWithNullRecipe() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			RecipeFileWriter.convertRecipeToString(null);
+			RecipeUtility.convertRecipeToString(null);
 		});
 	}
 
@@ -30,7 +30,7 @@ class TestConvertRecipeToString {
 		};
 
 		assertThrows(IllegalArgumentException.class, () -> {
-			RecipeFileWriter.convertRecipeToString(recipe);
+			RecipeUtility.convertRecipeToString(recipe);
 		});
 	}
 
@@ -42,7 +42,7 @@ class TestConvertRecipeToString {
 		recipe.addIngredient(new Ingredient("Salsa", "Vegetable"));
 
 		String expected = "Burrito" + System.lineSeparator() + "Tortilla, Chicken, Salsa";
-		String actual = RecipeFileWriter.convertRecipeToString(recipe);
+		String actual = RecipeUtility.convertRecipeToString(recipe);
 
 		assertEquals(expected, actual);
 	}
@@ -53,7 +53,7 @@ class TestConvertRecipeToString {
 		recipe.addIngredient(new Ingredient("Eggs", "Meat"));
 
 		String expected = "Steak and Eggs" + System.lineSeparator() + "Eggs";
-		String actual = RecipeFileWriter.convertRecipeToString(recipe);
+		String actual = RecipeUtility.convertRecipeToString(recipe);
 
 		assertEquals(expected, actual);
 	}

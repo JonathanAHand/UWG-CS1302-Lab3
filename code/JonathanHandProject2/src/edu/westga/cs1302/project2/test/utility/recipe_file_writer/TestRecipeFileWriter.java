@@ -26,7 +26,7 @@ class TestRecipeFileWriter {
 
 		deleteTestFile();
 
-		RecipeFileWriter.writeRecipeToFile(recipe, TEST_FILE);
+		RecipeFileWriter.appendRecipeToFile(recipe, TEST_FILE);
 
 		try (Scanner scanner = new Scanner(new FileReader(TEST_FILE))) {
 			String firstLine = scanner.nextLine();
@@ -44,7 +44,7 @@ class TestRecipeFileWriter {
 	@Test
 	public void testWithNullRecipe() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			RecipeFileWriter.writeRecipeToFile(null, TEST_FILE);
+			RecipeFileWriter.appendRecipeToFile(null, TEST_FILE);
 		});
 
 		deleteTestFile();
@@ -55,7 +55,7 @@ class TestRecipeFileWriter {
 		Recipe recipe = new Recipe("Salad");
 
 		assertThrows(IllegalArgumentException.class, () -> {
-			RecipeFileWriter.writeRecipeToFile(recipe, "");
+			RecipeFileWriter.appendRecipeToFile(recipe, "");
 		});
 
 		deleteTestFile();
@@ -66,7 +66,7 @@ class TestRecipeFileWriter {
 		Recipe recipe = new Recipe("Salad");
 
 		assertThrows(IllegalArgumentException.class, () -> {
-			RecipeFileWriter.writeRecipeToFile(recipe, null);
+			RecipeFileWriter.appendRecipeToFile(recipe, null);
 		});
 
 		deleteTestFile();
@@ -78,7 +78,7 @@ class TestRecipeFileWriter {
 
 		deleteTestFile();
 
-		RecipeFileWriter.writeRecipeToFile(recipe, TEST_FILE);
+		RecipeFileWriter.appendRecipeToFile(recipe, TEST_FILE);
 
 		try (Scanner scanner = new Scanner(new FileReader(TEST_FILE))) {
 			String firstLine = scanner.nextLine();
