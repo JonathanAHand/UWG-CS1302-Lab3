@@ -41,7 +41,7 @@ class TestConvertRecipeToString {
 		recipe.addIngredient(new Ingredient("Chicken", "Meat"));
 		recipe.addIngredient(new Ingredient("Salsa", "Vegetable"));
 
-		String expected = "Burrito" + System.lineSeparator() + "Tortilla, Chicken, Salsa";
+		String expected = "Burrito" + System.lineSeparator() + "Tortilla, Bread, Chicken, Meat, Salsa, Vegetable";
 		String actual = RecipeUtility.convertRecipeToString(recipe);
 
 		assertEquals(expected, actual);
@@ -52,7 +52,7 @@ class TestConvertRecipeToString {
 		Recipe recipe = new Recipe("Steak and Eggs");
 		recipe.addIngredient(new Ingredient("Eggs", "Meat"));
 
-		String expected = "Steak and Eggs" + System.lineSeparator() + "Eggs";
+		String expected = "Steak and Eggs" + System.lineSeparator() + "Eggs, Meat";
 		String actual = RecipeUtility.convertRecipeToString(recipe);
 
 		assertEquals(expected, actual);

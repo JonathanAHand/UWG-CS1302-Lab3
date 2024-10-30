@@ -1,13 +1,17 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 import edu.westga.cs1302.project2.utility.NameComparator;
 import edu.westga.cs1302.project2.utility.PantryUtility;
+import edu.westga.cs1302.project2.utility.RecipeFileWriter;
 import edu.westga.cs1302.project2.utility.TypeComparator;
 import edu.westga.cs1302.project2.model.Ingredient;
+import edu.westga.cs1302.project2.model.Recipe;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -69,7 +73,34 @@ public class MainWindow {
 	}
 
 	@FXML
-	public void addRecipe() {
+	void addRecipe() {
+		String recipeName = this.recipeNameField.getText();
+
+	    if (recipeName == null || recipeName.isEmpty()) {
+	        System.out.println("Recipe name cannot be empty.");
+	        return;
+	    }
+
+	    List<Ingredient> ingredients = new ArrayList<>(this.recipeIngredientsList.getItems());
+
+	    if (ingredients.isEmpty()) {
+	        System.out.println("Recipe must contain at least one ingredient.");
+	        return;
+	    }
+
+	    Recipe newRecipe = new Recipe(recipeName);
+	    for (Ingredient ingredient : ingredients) {
+	        newRecipe.addIngredient(ingredient);
+	    }
+
+	    try {
+	        RecipeFileWriter.appendRecipeToFile(newRecipe, "recipes.txt");
+	        System.out.println("Recipe added successfully.");
+	    } catch (IOException error) {
+	        System.out.println("Error writing to file: " + error.getMessage());
+	    } catch (IllegalStateException error) {
+	        System.out.println("Recipe already exists in the file.");
+	    }
 	}
 
 	@FXML

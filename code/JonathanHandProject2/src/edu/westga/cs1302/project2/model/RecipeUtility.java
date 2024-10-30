@@ -30,7 +30,8 @@ public class RecipeUtility {
 		String ingredientsLine = "";
 
 		for (int index = 0; index < ingredients.size(); index++) {
-			ingredientsLine += ingredients.get(index).getName();
+			Ingredient ingredient = ingredients.get(index);
+			ingredientsLine += ingredient.getName() + ", " + ingredient.getType();
 			if (index < ingredients.size() - 1) {
 				ingredientsLine += ", ";
 			}

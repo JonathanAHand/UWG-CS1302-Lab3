@@ -1,5 +1,6 @@
 package edu.westga.cs1302.project2.test.utility.recipe_file_writer;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,26 +20,30 @@ class TestAppendRecipeToFile {
 	private static final String TEST_FILE = "data.txt";
 
 	@Test
-	public void testWithValidRecipe() throws IOException {
-		Recipe recipe = new Recipe("Pasta");
-		recipe.addIngredient(new Ingredient("Noodles", "Grain"));
-		recipe.addIngredient(new Ingredient("Tomato Sauce", "Sauce"));
+	public void testWithValidIngredients() throws IOException {
+		Recipe recipe = new Recipe("Chocolate Cake");
+		recipe.addIngredient(new Ingredient("Flour", "Wheat"));
+		recipe.addIngredient(new Ingredient("Eggs", "Meat"));
+		recipe.addIngredient(new Ingredient("Sugar", "Spice"));
 
-		deleteTestFile();
+		File file = new File(TEST_FILE);
+		if (file.exists()) {
+			file.delete();
+		}
 
 		RecipeFileWriter.appendRecipeToFile(recipe, TEST_FILE);
 
 		try (Scanner scanner = new Scanner(new FileReader(TEST_FILE))) {
 			String firstLine = scanner.nextLine();
 			String secondLine = scanner.nextLine();
-			String thirdLine = scanner.nextLine();
 
-			assertTrue(firstLine.contains("Pasta"));
-			assertTrue(secondLine.contains("Ingredients:"));
-			assertTrue(thirdLine.contains("Noodles (Grain)"));
+			assertTrue(firstLine.contains("Chocolate Cake"));
+			assertTrue(secondLine.contains("Flour, Wheat"));
+			assertTrue(secondLine.contains("Eggs, Meat"));
+			assertTrue(secondLine.contains("Sugar, Spice"));
 		}
 
-		deleteTestFile();
+		file.delete();
 	}
 
 	@Test
@@ -73,23 +78,26 @@ class TestAppendRecipeToFile {
 	}
 
 	@Test
-	public void testWithNoIngredients() throws IOException {
-		Recipe recipe = new Recipe("Plain Water");
+    public void testAppendRecipeToFileWithNoIngredients() throws IOException {
+        Recipe recipe = new Recipe("Plain Water");
 
-		deleteTestFile();
+        File file = new File(TEST_FILE);
+        if (file.exists()) {
+            file.delete();
+        }
 
-		RecipeFileWriter.appendRecipeToFile(recipe, TEST_FILE);
+        RecipeFileWriter.appendRecipeToFile(recipe, TEST_FILE);
 
-		try (Scanner scanner = new Scanner(new FileReader(TEST_FILE))) {
-			String firstLine = scanner.nextLine();
-			String secondLine = scanner.nextLine();
+        try (Scanner scanner = new Scanner(new FileReader(TEST_FILE))) {
+            String firstLine = scanner.nextLine();
+            String secondLine = scanner.nextLine();
 
-			assertTrue(firstLine.contains("Plain Water"));
-			assertTrue(secondLine.contains("Ingredients:"));
-		}
+            assertEquals("Plain Water", firstLine);
+            assertEquals("", secondLine);
+        }
 
-		deleteTestFile();
-	}
+        file.delete();
+    }
 
 	private void deleteTestFile() {
 		File file = new File(TEST_FILE);

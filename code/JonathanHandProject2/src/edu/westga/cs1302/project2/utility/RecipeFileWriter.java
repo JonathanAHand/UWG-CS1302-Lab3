@@ -1,6 +1,7 @@
 package edu.westga.cs1302.project2.utility;
 
 import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeUtility;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -31,6 +32,9 @@ public class RecipeFileWriter {
 		}
 
 		File file = new File(filePath);
+		if (!file.exists()) {
+			file.createNewFile();
+		}
 
 		try (Scanner scanner = new Scanner(file)) {
 			while (scanner.hasNextLine()) {
@@ -41,16 +45,11 @@ public class RecipeFileWriter {
 			}
 		}
 
-		try (FileWriter writer = new FileWriter(file, true)) {
-			writer.write(recipe.getName() + System.lineSeparator());
+		String recipeString = RecipeUtility.convertRecipeToString(recipe);
 
-			for (int index = 0; index < recipe.getIngredients().size(); index++) {
-				writer.write(recipe.getIngredients().get(index).getName());
-				if (index < recipe.getIngredients().size() - 1) {
-					writer.write(", ");
-				}
-			}
-			writer.write(System.lineSeparator());
+		try (FileWriter writer = new FileWriter(file, true)) {
+			writer.write(recipeString + System.lineSeparator());
+
 		}
 	}
 
