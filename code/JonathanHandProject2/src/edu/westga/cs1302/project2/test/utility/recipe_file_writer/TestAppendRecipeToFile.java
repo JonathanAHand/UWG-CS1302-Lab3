@@ -14,7 +14,7 @@ import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.Recipe;
 import edu.westga.cs1302.project2.utility.RecipeFileWriter;
 
-class TestRecipeFileWriter {
+class TestAppendRecipeToFile {
 
 	private static final String TEST_FILE = "data.txt";
 
