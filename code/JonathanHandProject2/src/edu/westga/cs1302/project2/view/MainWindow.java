@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 
 /**
  * Codebehind for the Main Window of the application.
@@ -38,6 +39,8 @@ public class MainWindow {
 	private ListView<Ingredient> recipeIngredientsList;
 	@FXML
 	private TextField recipeNameField;
+	@FXML
+	private TextArea recipesTextArea;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -101,6 +104,11 @@ public class MainWindow {
 	    } catch (IllegalStateException error) {
 	        System.out.println("Recipe already exists in the file.");
 	    }
+	}
+	
+	@FXML
+	void displayRecipesWithIngredient() {
+	
 	}
 
 	@FXML
