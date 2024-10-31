@@ -42,4 +42,29 @@ public class RecipeUtility {
 		return result;
 	}
 
+	/**
+	 * Converts a list of recipes to a string representation with each recipe
+	 * separated by a blank line.
+	 * 
+	 * @param recipes the list of recipes to convert.
+	 * @return a formatted string representation of the list of recipes.
+	 * @throws IllegalArgumentException if the recipes list is null.
+	 */
+	public static String recipeListConverter(List<Recipe> recipes) {
+		if (recipes == null) {
+			throw new IllegalArgumentException("Recipes list cannot be null.");
+		}
+
+		String result = "";
+
+		for (int index = 0; index < recipes.size(); index++) {
+			result += convertRecipeToString(recipes.get(index));
+			if (index < recipes.size() - 1) {
+				result += System.lineSeparator();
+			}
+		}
+
+		return result;
+	}
+
 }
