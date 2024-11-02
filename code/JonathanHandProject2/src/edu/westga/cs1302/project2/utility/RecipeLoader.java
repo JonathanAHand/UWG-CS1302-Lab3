@@ -17,47 +17,55 @@ import java.util.Scanner;
  */
 public class RecipeLoader {
 
-	private String filePath;
-
 	/**
 	 * Creates a RecipeLoader for the specified file path.
 	 * 
 	 * @param filePath the path to the file containing recipes
 	 */
 	public RecipeLoader(String filePath) {
-		this.filePath = filePath;
 	}
 
 	/**
 	 * Loads all recipes from the file.
 	 * 
+	 * @param filePath the path to the file.
 	 * @return a list of recipes, or an empty list if the file is empty or not found
 	 * @throws IOException if an I/O error occurs
 	 */
-	public List<Recipe> loadRecipes() throws IOException {
-		List<Recipe> recipes = new ArrayList<>();
-		File file = new File(this.filePath);
+	public static List<Recipe> loadRecipes(String filePath) throws IOException {
+	    List<Recipe> recipes = new ArrayList<>();
+	    File file = new File(filePath);
 
-		if (!file.exists()) {
-			return recipes;
-		}
+	    if (!file.exists()) {
+	        return recipes;
+	    }
 
-		try (Scanner scanner = new Scanner(file)) {
-			while (scanner.hasNextLine()) {
-				String recipeName = scanner.nextLine();
-				String[] ingredientData = scanner.nextLine().split(", ");
-				Recipe recipe = new Recipe(recipeName);
+	    try (Scanner scanner = new Scanner(file)) {
+	        while (scanner.hasNextLine()) {
+	            String recipeName = scanner.nextLine().trim();
+	            
+	            if (recipeName.isEmpty() || !scanner.hasNextLine()) {
+	                continue;
+	            }
+	            
+	            String ingredientsLine = scanner.nextLine().trim();
+	            String[] ingredients = ingredientsLine.split(", ");
+	            Recipe recipe = new Recipe(recipeName);
 
-				for (String ingredientEntry : ingredientData) {
-					String[] parts = ingredientEntry.split("-");
-					if (parts.length == 2) {
-						recipe.addIngredient(new Ingredient(parts[0], parts[1]));
-					}
-				}
-				recipes.add(recipe);
-			}
-		}
-		return recipes;
+	            for (int index = 0; index < ingredients.length - 1; index += 2) {
+	                String ingredientName = ingredients[index].trim();
+	                String ingredientType = ingredients[index + 1].trim();
+	                
+	                if (!ingredientName.isEmpty()) {
+	                    recipe.addIngredient(new Ingredient(ingredientName, ingredientType));
+	                }
+	            }
+	            
+	            recipes.add(recipe);
+	        }
+	    }
+	    return recipes;
+	    
 	}
 
 	/**
@@ -70,7 +78,7 @@ public class RecipeLoader {
 	 */
 	public List<Recipe> loadRecipesWithIngredient(String ingredientName) throws IOException {
 		List<Recipe> currRecipes = new ArrayList<>();
-		List<Recipe> allRecipes = this.loadRecipes();
+		List<Recipe> allRecipes = RecipeLoader.loadRecipes(ingredientName);
 
 		for (Recipe recipe : allRecipes) {
 			for (Ingredient ingredient : recipe.getIngredients()) {

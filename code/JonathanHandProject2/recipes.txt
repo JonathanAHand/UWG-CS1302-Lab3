@@ -1,4 +1,8 @@
-Spaghetti
-noodles, sauce
+applesause
+apples, Fruit
 fruit salad
 apples, Fruit, bananas, Fruit
+apple cider
+apples, Fruit
+caramel apples
+apples, Fruit

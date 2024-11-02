@@ -8,10 +8,11 @@ import java.util.List;
 import edu.westga.cs1302.project2.utility.NameComparator;
 import edu.westga.cs1302.project2.utility.PantryUtility;
 import edu.westga.cs1302.project2.utility.RecipeFileWriter;
+import edu.westga.cs1302.project2.utility.RecipeLoader;
 import edu.westga.cs1302.project2.utility.TypeComparator;
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.Recipe;
-
+import edu.westga.cs1302.project2.model.RecipeUtility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -19,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Button;
 
 /**
  * Codebehind for the Main Window of the application.
@@ -41,6 +43,8 @@ public class MainWindow {
 	private TextField recipeNameField;
 	@FXML
 	private TextArea recipesTextArea;
+	@FXML
+	private Button displayRecipesButton;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -79,36 +83,66 @@ public class MainWindow {
 	void addRecipe() {
 		String recipeName = this.recipeNameField.getText();
 
-	    if (recipeName == null || recipeName.isEmpty()) {
-	        System.out.println("Recipe name cannot be empty.");
-	        return;
-	    }
+		if (recipeName == null || recipeName.isEmpty()) {
+			System.out.println("Recipe name cannot be empty.");
+			return;
+		}
 
-	    List<Ingredient> ingredients = new ArrayList<>(this.recipeIngredientsList.getItems());
+		List<Ingredient> ingredients = new ArrayList<>(this.recipeIngredientsList.getItems());
 
-	    if (ingredients.isEmpty()) {
-	        System.out.println("Recipe must contain at least one ingredient.");
-	        return;
-	    }
+		if (ingredients.isEmpty()) {
+			System.out.println("Recipe must contain at least one ingredient.");
+			return;
+		}
 
-	    Recipe newRecipe = new Recipe(recipeName);
-	    for (Ingredient ingredient : ingredients) {
-	        newRecipe.addIngredient(ingredient);
-	    }
+		Recipe newRecipe = new Recipe(recipeName);
+		for (Ingredient ingredient : ingredients) {
+			newRecipe.addIngredient(ingredient);
+		}
 
-	    try {
-	        RecipeFileWriter.appendRecipeToFile(newRecipe, "recipes.txt");
-	        System.out.println("Recipe added successfully.");
-	    } catch (IOException error) {
-	        System.out.println("Error writing to file: " + error.getMessage());
-	    } catch (IllegalStateException error) {
-	        System.out.println("Recipe already exists in the file.");
-	    }
+		try {
+			RecipeFileWriter.appendRecipeToFile(newRecipe, "recipes.txt");
+			System.out.println("Recipe added successfully.");
+		} catch (IOException error) {
+			System.out.println("Error writing to file: " + error.getMessage());
+		} catch (IllegalStateException error) {
+			System.out.println("Recipe already exists in the file.");
+		}
 	}
-	
+
 	@FXML
-	void displayRecipesWithIngredient() {
-	
+	void displayRecipes() {
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+		if (selectedIngredient == null) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("No Ingredient Selected");
+			alert.setContentText("Please select an ingredient to display related recipes.");
+			alert.showAndWait();
+			return;
+		}
+
+		try {
+			List<Recipe> allRecipes = RecipeLoader.loadRecipes("recipes.txt");
+			List<Recipe> filteredRecipes = new ArrayList<>();
+			for (Recipe recipe : allRecipes) {
+				for (Ingredient ingredient : recipe.getIngredients()) {
+					if (ingredient.getName().equals(selectedIngredient.getName())) {
+						filteredRecipes.add(recipe);
+						break;
+					}
+				}
+			}
+
+			String recipesText = RecipeUtility.recipeListConverter(filteredRecipes);
+
+			this.recipesTextArea.setText(recipesText);
+
+		} catch (IOException error) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("File Error");
+			alert.setContentText("Unable to load recipes from the file.");
+			alert.showAndWait();
+		}
 	}
 
 	@FXML
@@ -148,5 +182,5 @@ public class MainWindow {
 	public void sortChanged(ActionEvent event) {
 		this.sortIngredients();
 	}
-	
+
 }
