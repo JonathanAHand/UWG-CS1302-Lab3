@@ -1,8 +1,13 @@
-applesause
+
+dumplings
 apples, Fruit
-fruit salad
+sauces1
+apples, Fruit
+brunch
 apples, Fruit, bananas, Fruit
-apple cider
+applesaucse1
 apples, Fruit
-caramel apples
+Banana pudding
+bananas, Fruit
+applesauce2
 apples, Fruit

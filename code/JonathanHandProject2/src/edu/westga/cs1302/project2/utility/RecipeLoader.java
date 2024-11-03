@@ -33,39 +33,39 @@ public class RecipeLoader {
 	 * @throws IOException if an I/O error occurs
 	 */
 	public static List<Recipe> loadRecipes(String filePath) throws IOException {
-	    List<Recipe> recipes = new ArrayList<>();
-	    File file = new File(filePath);
+		List<Recipe> recipes = new ArrayList<>();
+		File file = new File(filePath);
 
-	    if (!file.exists()) {
-	        return recipes;
-	    }
+		if (!file.exists()) {
+			return recipes;
+		}
 
-	    try (Scanner scanner = new Scanner(file)) {
-	        while (scanner.hasNextLine()) {
-	            String recipeName = scanner.nextLine().trim();
-	            
-	            if (recipeName.isEmpty() || !scanner.hasNextLine()) {
-	                continue;
-	            }
-	            
-	            String ingredientsLine = scanner.nextLine().trim();
-	            String[] ingredients = ingredientsLine.split(", ");
-	            Recipe recipe = new Recipe(recipeName);
+		try (Scanner scanner = new Scanner(file)) {
+			while (scanner.hasNextLine()) {
+				String recipeName = scanner.nextLine().trim();
 
-	            for (int index = 0; index < ingredients.length - 1; index += 2) {
-	                String ingredientName = ingredients[index].trim();
-	                String ingredientType = ingredients[index + 1].trim();
-	                
-	                if (!ingredientName.isEmpty()) {
-	                    recipe.addIngredient(new Ingredient(ingredientName, ingredientType));
-	                }
-	            }
-	            
-	            recipes.add(recipe);
-	        }
-	    }
-	    return recipes;
-	    
+				if (recipeName.isEmpty() || !scanner.hasNextLine()) {
+					continue;
+				}
+
+				String ingredientsLine = scanner.nextLine().trim();
+				String[] ingredients = ingredientsLine.split(", ");
+				Recipe recipe = new Recipe(recipeName);
+
+				for (int index = 0; index < ingredients.length - 1; index += 2) {
+					String ingredientName = ingredients[index].trim();
+					String ingredientType = ingredients[index + 1].trim();
+
+					if (!ingredientName.isEmpty()) {
+						recipe.addIngredient(new Ingredient(ingredientName, ingredientType));
+					}
+				}
+
+				recipes.add(recipe);
+			}
+		}
+		return recipes;
+
 	}
 
 	/**
