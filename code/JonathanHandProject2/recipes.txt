@@ -1,13 +1,1 @@
 
-dumplings
-apples, Fruit
-sauces1
-apples, Fruit
-brunch
-apples, Fruit, bananas, Fruit
-applesaucse1
-apples, Fruit
-Banana pudding
-bananas, Fruit
-applesauce2
-apples, Fruit

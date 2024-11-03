@@ -60,7 +60,7 @@ public class RecipeUtility {
 		for (int index = 0; index < recipes.size(); index++) {
 			result += convertRecipeToString(recipes.get(index));
 			if (index < recipes.size() - 1) {
-				result += System.lineSeparator();
+				result += System.lineSeparator() + System.lineSeparator();
 			}
 		}
 
