@@ -39,7 +39,7 @@ public class PasswordViewModel {
 	public StringProperty getPasswordProperty() {
 		return this.password;
 	}
-
+	
 	/**
 	 * Gets the errorText property.
 	 *
@@ -119,4 +119,5 @@ public class PasswordViewModel {
 
 		this.password.set(generatedPassword);
 	}
+	
 }
