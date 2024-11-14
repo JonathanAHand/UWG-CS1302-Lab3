@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -30,6 +31,8 @@ public class MainWindow {
 	private Label errorTextLabel;
 	@FXML
 	private Button generatePasswordButton;
+	@FXML
+	private ListView<String> passwordList;
 
 	private ViewModel vm;
 
@@ -42,8 +45,9 @@ public class MainWindow {
 		this.minimumLength.setText(this.vm.getMinimumLength().getValue());
 		this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
 
-		this.output.textProperty().bind(this.vm.getPassword());
 		this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
+		this.passwordList.itemsProperty().bind(this.vm.getPasswords());
+
 		this.minimumLength.textProperty().addListener((observable, oldValue, newValue) -> {
 			if (this.vm.verifyMinimumLength(newValue)) {
 				this.errorTextLabel.setVisible(false);

@@ -1,6 +1,6 @@
 package edu.westga.cs1302.password_generator.test.model.password_generator;
 
-import static org.junit.jupiter.api.Assertions.*; 
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(false);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(false);
 		generator.setMustHaveAtLeastOneDigit(false);
-		
+
 		String result = generator.generatePassword();
 		assertTrue(1 <= result.length(), "checking length of generated password");
 	}
@@ -27,7 +27,7 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(false);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(false);
 		generator.setMustHaveAtLeastOneDigit(false);
-		
+
 		String result = generator.generatePassword();
 
 		assertTrue(3 <= result.length(), "checking length of generated password");
@@ -40,9 +40,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(true);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(false);
 		generator.setMustHaveAtLeastOneDigit(false);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -53,9 +53,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(false);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(false);
 		generator.setMustHaveAtLeastOneDigit(true);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -66,9 +66,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(false);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(true);
 		generator.setMustHaveAtLeastOneDigit(false);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -79,9 +79,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(true);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(true);
 		generator.setMustHaveAtLeastOneDigit(false);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -92,9 +92,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(false);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(true);
 		generator.setMustHaveAtLeastOneDigit(true);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -105,9 +105,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(true);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(false);
 		generator.setMustHaveAtLeastOneDigit(true);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 
@@ -118,9 +118,9 @@ class TestGeneratePassword {
 		generator.setMustHaveAtLeastOneUpperCaseLetter(true);
 		generator.setMustHaveAtLeastOneLowerCaseLetter(true);
 		generator.setMustHaveAtLeastOneDigit(true);
-		
+
 		String result = generator.generatePassword();
-		
+
 		assertTrue(3 <= result.length(), "checking length of generated password");
 	}
 

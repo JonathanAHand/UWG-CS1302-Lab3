@@ -7,6 +7,9 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 
 /**
  * Manages utilizing the model and makes properties available to bind the UI
@@ -23,6 +26,7 @@ public class ViewModel {
 	private BooleanProperty requireLowercase;
 	private BooleanProperty requireUppercase;
 
+	private ListProperty<String> passwords;
 	private StringProperty password;
 	private StringProperty errorText;
 
@@ -39,6 +43,7 @@ public class ViewModel {
 
 		this.password = new SimpleStringProperty("");
 		this.errorText = new SimpleStringProperty("");
+		this.passwords = new SimpleListProperty<>(FXCollections.observableArrayList());
 
 		Random randomNumberGenerator = new Random();
 		this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
@@ -99,6 +104,15 @@ public class ViewModel {
 	}
 
 	/**
+	 * Getter method for passwords.
+	 * 
+	 * @return the passwords.
+	 */
+	public ListProperty<String> getPasswords() {
+		return this.passwords;
+	}
+
+	/**
 	 * Verifies that the input matches the ALPHANUMERIC_PATTERN.
 	 * 
 	 * @precondition none
@@ -145,8 +159,12 @@ public class ViewModel {
 		this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.requireUppercase.getValue());
 
 		String password = this.generator.generatePassword();
-
-		this.password.setValue(password);
+		if (!password.isEmpty()) {
+			this.passwords.add(password);
+			this.errorText.setValue("");
+		} else {
+			this.errorText.setValue("Password generation failed.");
+		}
 	}
 
 }
