@@ -8,7 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/** Starting point for the project. Launches the main window.
+/**
+ * Starting point for the project. Launches the main window.
  * 
  * @author CS 1302
  * @version Fall 2024

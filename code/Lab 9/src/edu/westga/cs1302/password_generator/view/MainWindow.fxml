@@ -10,25 +10,41 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="366.0" minWidth="215.0" prefHeight="438.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.password_generator.view.MainWindow">
-   <children>
-   	  <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="26.0" prefWidth="215.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem fx:id="fileAbout" mnemonicParsing="false" onAction="#handleFileAbout" text="About" />
-              <MenuItem fx:id="fileClose" mnemonicParsing="false" onAction="#handleFileClose" text="Close" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <CheckBox fx:id="mustIncludeDigits" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" text="Must Include Digits" />
-      <CheckBox fx:id="mustIncludeLowerCaseLetters" layoutX="12.0" layoutY="145.0" mnemonicParsing="false" text="Must Include Lower Case Letters" />
-      <CheckBox fx:id="mustIncludeUpperCaseLetters" layoutX="12.0" layoutY="176.0" mnemonicParsing="false" text="Must Include Upper Case Letters" />
-      <Button fx:id="generatePasswordButton" layoutX="49.0" layoutY="206.0" mnemonicParsing="false" text="Generate Password" />
-      <Label layoutX="12.0" layoutY="54.0" text="Minimum Length" />
-      <TextField fx:id="minimumLength" layoutX="123.0" layoutY="41.0" prefHeight="25.0" prefWidth="41.0" />
-      <TextArea fx:id="output" editable="false" layoutX="12.0" layoutY="246.0" prefHeight="185.0" prefWidth="194.0" wrapText="true" />
-      <Label fx:id="errorTextLabel" layoutX="9.0" layoutY="136.0" prefHeight="17.0" prefWidth="199.0" textFill="RED" />
-         </children>
+<AnchorPane minHeight="366.0" minWidth="215.0"
+	prefHeight="438.0" prefWidth="215.0"
+	xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="edu.westga.cs1302.password_generator.view.MainWindow">
+	<children>
+		<MenuBar layoutX="0.0" layoutY="0.0" prefHeight="26.0"
+			prefWidth="215.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="fileAbout" mnemonicParsing="false"
+							onAction="#handleFileAbout" text="About" />
+						<MenuItem fx:id="fileClose" mnemonicParsing="false"
+							onAction="#handleFileClose" text="Close" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<CheckBox fx:id="mustIncludeDigits" layoutX="10.0"
+			layoutY="110.0" mnemonicParsing="false" text="Must Include Digits" />
+		<CheckBox fx:id="mustIncludeLowerCaseLetters" layoutX="12.0"
+			layoutY="145.0" mnemonicParsing="false"
+			text="Must Include Lower Case Letters" />
+		<CheckBox fx:id="mustIncludeUpperCaseLetters" layoutX="12.0"
+			layoutY="176.0" mnemonicParsing="false"
+			text="Must Include Upper Case Letters" />
+		<Button fx:id="generatePasswordButton" layoutX="49.0"
+			layoutY="206.0" mnemonicParsing="false" text="Generate Password" />
+		<Label layoutX="12.0" layoutY="54.0" text="Minimum Length" />
+		<TextField fx:id="minimumLength" layoutX="123.0"
+			layoutY="41.0" prefHeight="25.0" prefWidth="41.0" />
+		<TextArea fx:id="output" editable="false" layoutX="12.0"
+			layoutY="246.0" prefHeight="185.0" prefWidth="194.0" wrapText="true" />
+		<Label fx:id="errorTextLabel" layoutX="9.0" layoutY="136.0"
+			prefHeight="17.0" prefWidth="199.0" textFill="RED" />
+	</children>
 </AnchorPane>

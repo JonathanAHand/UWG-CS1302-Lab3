@@ -1,0 +1,738 @@
+commit cacd57a778472632928d1e4d2edd59c629d5227c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Nov 20 13:57:36 2024 -0500
+
+    Added MenuBar to GUI with File menu/functionality
+    
+    Created new MenuBar named File to MainWindow with
+    MenuItem About and corresponding handling method
+    to display a popup that describes the project and lists
+    the author.
+    Implemented new additional MenuItem Close and method
+    to handle exiting the application.
+    which exits the application and closes it.
+
+commit b25412a798f8ed762dc87aa6359284855511685c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Nov 18 22:21:13 2024 -0500
+
+    Initial commit for Lab 9 project.
+    
+    Added starter files for Lab 9 project to
+    repository.
+
+commit 4290e1af4c82bbc8d4a009a6dd12d0dec6105a36
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 14 01:43:27 2024 -0500
+
+    Updated GUI/logic and added test cases.
+    
+    Replaced textArea with a listView and binded to
+    ViewModel's password list. List property added in
+    ViewModel should now store and display all previous
+    passwords.
+    Added/updated test cases in generatePassword to
+    check new behavior in ViewModel including adding
+    multiple and duplicate passwords.
+
+commit b509a75e5a1f88e82aee80ca8a7023e8e48a755b
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Nov 12 23:23:28 2024 -0500
+
+    Implemented password input field validation.
+    
+    Added change listener to validate minimum length
+    of password to be 1 or more. Created method to
+    verify minimum length against criteria in regular
+    expression format constant ALPHANUMERIC_PATTERN.
+
+commit ef783311088ff1986bf265193e2673a41e6d03aa
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 7 01:12:22 2024 -0500
+
+    Added .txt files to repository
+    
+    Attached log.txt and repository url to project.
+
+commit 375697dc52fe641cae2a58f27a927fe42252ef2d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 7 00:45:27 2024 -0500
+
+    Binded UI to ViewModel and created test cases.
+    
+    Linked MainWindow UI components to new class
+    PasswordViewModel properties created in previous
+    feature allows for automatic updating.
+    generatePassword button now calls PasswordViewModel
+    method direct.
+    Validation of password is moved to PasswordViewModel
+    and errorTextProperty displays invalid input message.
+    Created test cases for PasswordViewModel testing
+    all criteria for proper password generation.
+
+commit 199022b58984361d3c523e92bf8b4cf2656b7ab6
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Nov 5 00:02:28 2024 -0500
+
+    Added project files/implemented ViewModel.
+    
+    Added Lab 7 project starter files to repository.
+    Created and implemented Password ViewModel class
+    to provide appropriate property objects for each
+    of the values needed by UI.
+    Created generatePassword() method to create
+    password based on listed criteria.
+    Actual databinding not yet implemented.
+    Test cases not created at this time.
+
+commit d2172f7819d37f7aab652c21e09460d9eecccfe6
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Nov 3 18:12:17 2024 -0500
+
+    Updated format for recipe display.
+    
+    Updated recipeListConverter() method to include a
+    blank space between recipes when displayed. Previous
+    implementation displayed as full block of text. This
+    corrects an error in intended design for display.
+
+commit 36bfd7c1f03dc261df61d132326f4b51a8f100cd
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Nov 3 00:01:56 2024 -0400
+
+    Added test cases to various remaining methods.
+    
+    Created tests for functionality and empty or
+    missing scenarios in Recipe constructor, loadRecipes,
+    loadRecipesWithIngredients and sortIngredients.
+
+commit 0af3b568b8435d03ea9da65fe2e806aa67d6adda
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Nov 1 23:48:36 2024 -0400
+
+    Connected GUI to business logic to display recipes
+    
+    Implemented recipe filtering by ingredient and
+    displaying found recipes by button press.
+    Display will show error alert if no ingredient is
+    selected.
+    recipes.txt is filtered through and the resulting
+    relevant recipe converted to string representation
+    in recipesTextArea.
+
+commit 53505052df3fe0aa73af40df8e7d2c0af5f70cf9
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 23:47:13 2024 -0400
+
+    Added multiple options of classes to load recipes
+    
+    Created RecipeLoader with methods to return a list
+    of recipes loaded from a file. If file cannot be
+    returned then empty list is returned.
+    Implemented the RecipeDataPersistenceManager abstract
+    class providing method definitions for loading
+    recipes and loading recipes with a specified ingredient.
+    Created RecipeFilePersistenceManager class that
+    extends RecipeDataPersistenceManager to load recipes
+    from a file.
+    Setup establishes a foundational structure
+    for managing recipe data persistence.
+    Both implementations are redundant/interchangeable
+    and logic from most appropriate implementations
+    will be used for future features.
+
+commit 9657593f2658a800d23e0dd3c5686447147d7dfc
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 21:25:04 2024 -0400
+
+    Added method to convert list of recipes to string
+    
+    Created static method recipeListConverter in
+    RecipeUtility class to convert a list of recipes
+    to a formatted string.
+    Format separates each recipe by one blank line.
+
+commit abd2b32d718892c6f096fcc9847e8872b1d70e7c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 20:51:32 2024 -0400
+
+    Updated GUI to display a recipe with ingredients.
+    
+    Created Display Recipe TextArea in FXML to display
+    recipes containing a selected ingredient.
+    Added button to trigger display of those recipes.
+    Updated MainWindow and FXML to support these changes.
+
+commit 0b1f96ee44cae1ee455d9410eebd2c958b9a066d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 18:14:57 2024 -0400
+
+    Refactored recipe methods logic and test cases.
+    
+    Refactored convertRecipeToString  formatting to
+    correctly output to string per instructions.
+    Refactored appendRecipeToFile to eliminate all
+    redundant logic. convertRecipeToString is now
+    called from appendRecipeToFile.
+    Refactored convertRecipeToString to correctly
+    include retrieving type of ingredient and not
+    only name.
+    Refactored/replaced test cases testing function
+    of convertRecipeToString and appendRecipeToFile.
+
+commit 5fb0b30fb45494372b7b717e92d480040c32a33d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 00:38:00 2024 -0400
+
+    Add test cases for RecipeFileWriter
+
+commit 29988d2de0710261c2d5ef4c920d03034ed67c8a
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 30 00:07:21 2024 -0400
+
+    Implemented class to write a recipe to a file.
+    
+    Created new RecipeFileWriter class with method
+    appendRecipeToFile() that appends a new recipe to
+    the end of a file with appropriate case exception
+    handling.
+    Refactored convertRecipeToString() into newly
+    created RecipeUtility class in model package from
+    existing RecipeFileWriter class. Classes were
+    created/methods separated to address potential
+    SOC concerns and keep system design clean.
+    Updated TestConvertRecipeToString and
+    TestRecipeFileWriter to function correctly under
+    new refactoring implications.
+
+commit 9785d8cf7cf4f3d3d8fa80b195069def3a7e32bd
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Oct 29 00:43:58 2024 -0400
+
+    Implemented Recipe conversion/added test cases.
+    
+    Created static method convertRecipeToString() to
+    FileWriter class. Converts a recipe to a string
+    with the specified format. Name should appear on
+    first line and a CSV ingredients list of names on
+    the second.
+    Throws IAE if either recipe/ingredients is null.
+    Added test cases for convertRecipeToString() and
+    writeRecipeToFile() checking for proper function
+    of formatting recipe name/ingredients and for the
+    successful writing of recipe to a file. Includes
+    testing for proper exception handling of null or
+    empty scenarios.
+
+commit 4d1e9bd104fd4bfc6846d130439519906fcc4448
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Oct 28 20:11:04 2024 -0400
+
+    Implemented a new class writing Recipe to a file.
+    
+    Created new class RecipeFileWriter in Utility
+    package and implemented logic to iterate over the
+    ingredients writing the Recipe name, and the
+    ingredients name and type.
+
+commit 2764aa7c3dc96053eaf0b337fe56ee069c87a9ab
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Oct 28 01:16:25 2024 -0400
+
+    Added Recipe Class to store/manage recipe info.
+    
+    Implemented features in Recipe Class to get/set a
+    recipe name, to retrieve the list of ingredients
+    in the recipe, and to add/remove an ingredient.
+    Class was created in Model package in an attempt
+    to stay consistent with best practice of SOC.
+
+commit 80b51d0871ce2a3eb96b9890c458c68414800e4d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 23:08:34 2024 -0400
+
+    Added support for the Add Recipe button in the UI
+    
+    Created new button in FXML to support user adding
+    a new recipe.
+    Linked button to placeholder method addRecipe()
+    in MainWindow. Method contains no implemented
+    logic at this time.
+
+commit 1670dc37fe8c6d9ad94de8282ccb97d12e23e2b2
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 22:46:27 2024 -0400
+
+    Add support for naming new recipe.
+    
+    Created new label to display "Recipe Name" in UI.
+    Created new TextField recipeNameField to enter
+    the recipe name.
+    Linked TextField with MainWindow for interaction
+    between logic and UI.
+
+commit 24bbefc05bb18947532034cf56d067129d35240c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 22:25:03 2024 -0400
+
+    Add support to add ingredients to recipe ListView
+    
+    Created new button to FXML file that allows user
+    to trigger the transfer of ingredients.
+    Implemented addIngredientsToRecipe() method that
+    adds a chosen ingredient from the pantry ListView
+    to the recipe ListView. This method may have been
+    implemented prematurely per project development
+    specifications. Any ramifications of this will be
+    addressed or corrected in future features/changes
+
+commit 38a3766a70a6b80bbc1f6942f0290b7bcef10838
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 21:30:31 2024 -0400
+
+    Added ListView to display ingredients in a recipe
+    
+    Created ListView in FXML that will store/display
+    the ingredients of a recipe in future logic.
+    Updated MainWindow to tie in ListView with the
+    controller.
+    Added Listview to initialize() to ensure proper
+    initialization.
+
+commit ae5ebf6ec3a6ea188c2aefe9b155763c11319771
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 20:31:59 2024 -0400
+
+    Implement sorting logic/refactored to ensure SOC.
+    
+    Implemented MainWindow to initialize sortCriteria
+    combobox to store NameComparator/TypeComparator.
+    Implemented sortIngredient() method in MainWindow
+    to trigger sorting based on chosen Comparator.
+    Updated add/removeIngredients()to ensure list is
+    sorted after being updated with changes.
+    Created new Utility Package with PantryUtility
+    class to store pantry business logic to ensure
+    proper isolation from the UI. Refactored the
+    NameComparator and TypeComparator to Utility
+    package to further separate out logic away from
+    data in model class. Utility class intended to
+    facilitate further future extensions of system
+    while properly maintaining SOC.
+    Created new test package for Utility and added
+    test cases verifying proper function of method
+    sortIngredients() in PantryUtility.
+
+commit 57d4de0234c4b2469964f530b891c1979da12ed3
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 08:58:15 2024 -0400
+
+    Added toString() methods.
+    
+    Created and implemented toString() method to both
+    TypeComparator and NameComparator class to return
+    "Type" or "Name" when each is selected.
+
+commit 7321906b09fc284f6524e50deeec6e306cdb84af
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Oct 26 08:30:03 2024 -0400
+
+    Created NameComparator class/related test cases.
+    
+    Implemented NameComparator class that implements
+    Comparator<Ingredient> and sorts Ingredient
+    objects according to their name.
+    Added test cases for proper sorting function,
+    handling of empty lists/null objects, and order
+    of duplicated names.
+    Added appropriate Javadocs throughout.
+
+commit e639900b19620fadc75b51383253eaab7b69592f
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Oct 25 00:55:04 2024 -0400
+
+    Created TypeComparator class/related test cases.
+    
+    Implemented TypeComparator class that implements
+    Comparator<Ingredient> and sorts Ingredient
+    objects according to their type.
+    Added test cases for proper sorting function,
+    handling of empty lists/null objects, and order
+    of duplicated types.
+
+commit 3322f1293978b646b02e6d9e763374e003aa793d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Oct 24 23:19:20 2024 -0400
+
+    Added GUI elements for selecting sort criteria.
+    
+    Created "Sort by" label to GUI above ComboBox.
+    Created a MainWindow "sortCriteria" ComboBox that
+    allows user to select which criteria to sort by s
+    No implementation of sorting logic, only GUI
+    components added to this point.
+
+commit 068fc6d80d2222b07ab1fc27a227c70f6a070270
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Oct 24 18:56:26 2024 -0400
+
+    First Initial project commit
+    
+    Added base and starter files.
+
+commit 5228bb28e6aa09b935d7bf3daf7172da02658eb1
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Oct 16 16:19:19 2024 -0400
+
+    Added additional sorting logic for BillItems.
+    
+    Correction on previous commit which stated logic
+    was created to sort for both ascending/descending
+    order. Only ascending order logic was created.
+    Created logic to sort items in descending order.
+    Added method to Bill class to use new sort logic.
+    Removed file path display function from method
+    saveBillData. Used for debugging only.
+    Added missing/proper Javadocs for various methods
+    and corrected Checkstyle warnings throughout.
+
+commit 4282950520852906c4d0ae246ceee47fd6a04eef
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Oct 15 17:29:44 2024 -0400
+
+    Added logic for sorting items.
+    
+    Created implementations of an abstract class that
+    sort the items by descending or ascending order.
+
+commit 32ab716e23e4b502b322d9cd2b8fdc8f3a328568
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Oct 15 16:21:44 2024 -0400
+
+    Added support for multiple formats.
+    
+     Converted BillPersistenceManager method into
+     abstract method. Created additional classes to
+     contain previous method implementations which
+     format data by either comma (CSV) or tab (TSV).
+
+commit abaa8600351a8bcb472da888063640a0cdc17b6d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Oct 10 16:27:32 2024 -0400
+
+    Added Lab 6 starter files/cleaned up repos files.
+    
+    Added starter and base files for Lab 6.
+    Re-added .gitignore file and checked changes for
+    safe adding.
+
+commit d27d2b1a15f05cc75b054d144ec734e771402b4b
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Oct 7 03:12:39 2024 -0400
+
+    Added Load Bill Capability/Created Test Cases
+    
+    Implemented method to load saved data from Bill.
+    Created test cases testing ability to save and
+    load data.
+
+commit a51fcb4d78913f056d58d1386d41fa132762d0f5
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Oct 1 17:01:51 2024 -0400
+
+    Changed savedBillData method
+    
+    Refactored save function to only read result of
+    server name, item and and amount.
+
+commit 066339c46abcb5083db2fd053985c930e147c23d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 30 12:34:59 2024 -0400
+
+    Implemented save feature
+    
+    Created logic for saving the data froma bill.
+    Implemented the save button so the bill is
+    saved when pressed.
+
+commit bfa95a129369bafa1f26f200f39f18998976b2d0
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 25 18:28:50 2024 -0400
+
+    Updated test cases.
+    
+    Created additional test cases for model class for
+    addFood, setQuantity, incrementQuantity and
+    decrementQuantity for basic functionality.
+    Created test case in PantryUtility for method
+    calculateTotalQuantity testing functionality.
+
+commit b259bd4df6186a1614805acfa3ba6c6d80ca17b3
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 25 13:37:24 2024 -0400
+
+    Created tests for model class and *OTHER CHANGES*
+    
+    Created Junit test cases for Food Constructor.
+    Reactivated CheckStyle and corrected existing
+    warnings throughout the project.
+    Refactored MainWindow methods for adding food,
+    setting, incrementing, and decrementing the
+    quantites to resolve separation of concerns
+    issues. Methods now call from logic found in Food
+    class and no longer any computational aspects.
+    Created new method addFood in Food class and
+    correctly implemented other existing methods from
+    Food class to methods in MainWindow.
+
+commit 0f19d5bc5289f0a9384666e8fb43e56474b474e3
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Sep 24 00:48:34 2024 -0400
+
+    Connected logic and UI for updating food quantity
+    
+    Implemented logic to display the total quantity
+    of food items in the Pantry on a pop-up display.
+
+commit d2323685caa22124b40c2cd32973d6e01bd8ab5a
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 22:00:51 2024 -0400
+
+    Created new static method in utility class.
+    
+    Added new utility package/class and static method
+    calculateTotalQuantity to sum up the total of all
+    items listed in the Pantry.
+
+commit 879fa9fdd32549e063c9395798fc1b595baf761e
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 20:57:34 2024 -0400
+
+    Implemented UI for counting Pantry items.
+    
+    Updated FXML by creating new button for counting
+    items. Updated MainWindow class by creating an
+    associated method for same.
+    Implementation pending.
+
+commit 7a231a8dfc237a3348f9454ef1564642df9dc00c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 20:14:27 2024 -0400
+
+    Implemented UI for removing food.
+    
+    Updated MainWindow to implement logic for removal
+    of the selected food item from the ListView in
+    pantry.
+
+commit aaab21c59d6d5747e11697ad93ddbd19ec5dc6c5
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 19:24:11 2024 -0400
+
+    Updated UI for remove food function.
+    
+    Created buttton in UI for removing selected food
+    item. Updated MainWindow by adding corresponding
+    method for same feature. Pending implementation.
+
+commit f8baa62d4830e6b4d0e7fefb31d61fe5342d0ac6
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 18:24:30 2024 -0400
+
+    Restructured FXML file to work with methods.
+    
+    Reconfigured project build path to correctly
+    compile and display Pantry. All incorrectly
+    configured JAR files moved from Classpath to
+    ModulePath to function normally.
+    Updated FXML file from temporary placeholder to
+    actual project code. Previous file replaced.
+    Business logic methods for setting, incrementing,
+    and decrementing food quantity were handled
+    previously and implemented during creation of
+    UI implementation.
+
+commit 2041add47e2052581b2c42bcf1d87edc1d289e57
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 23 00:29:47 2024 -0400
+
+    Updated Business Logic for updating food quantity
+    
+    Created methods in Food Class for the following:
+    Setting food quantity, incrementing food
+    quantity, and decrementing food quantity.
+
+commit 876380d9eadbad4ca3ecd5bee51b47ecbfa75e34
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Sep 22 23:48:05 2024 -0400
+
+    Implemented UI for Pantry buttons
+    
+    Created Label, TextField and Button allowing user
+    to set quantity. Associated method for function
+    created in MainWindow class.
+    Created individual buttons to allow user to
+    increase or decrease the quantity of food items
+    by 1 unit. Updated MainWindow class with
+    associated method.
+
+commit ed37e5c8ee39398a88e9f1743784297d0d53ef11
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 23:00:17 2024 -0400
+
+    Connected UI to business logic for adding food.
+    
+     Updated MainWindow class to implement method
+     for adding food and initialize the ComboBox
+     of food types.
+
+commit 616e21fcdb3a5175084fc8c85a79dfecf84bff09
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 22:10:42 2024 -0400
+
+    Added actual Business logic for storing food.
+    
+    Restored suspended changes from previous work to
+    have Food class created correctly and handle only
+    aspects at hand.
+    Constructor, getter methods for fields/quantity
+    as well as method to display and change quantity.
+
+commit 5dd4ef701a85207aa3a953af3d02513aa4c4ada4
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 21:33:45 2024 -0400
+
+    Added business logic for storing food.
+    
+    Originally intended to add logic for storing
+    food. Food class temporarily suspended intended
+    functionality to troubleshoot logic located
+    elsewhere in the system. Will restore on next
+    file add/commit.
+
+commit 4582ecd245e2176ca366a96b61785f57a410d7e9
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sat Sep 21 16:31:44 2024 -0400
+
+    Added UI for adding food to the pantryTracker.
+    
+    Created MainWindow.java/fxml with TextField for
+    entering food name.
+    Added ComboBox in the UI for choosing food type
+    and ListView to display the food items.
+    Linked the fxml to related fields in MainWindow.
+    JARS config build issue between Class/Modulepath
+    causing issue with compilation -- to be fixed.
+
+commit dd82d3f3bc6c2752e1f6d5d9b27c4560de3364c7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Sep 19 17:55:30 2024 -0400
+
+    Created PantryTracker Project
+    
+    Made new Java project named PantryTracker.
+    Re-added gitignore file.
+
+commit a6dbaae77072ee5b81e098905bcf8b87dc559007
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 18 23:04:43 2024 -0400
+
+    Modified Bill calculations to static methods/TestGetSubtotal
+    
+    Implemented BillCalculator class to handle calculations of
+    the subtotal, tax, tip, and total for the array of BillItem
+    objects. Previously handled in Bill class as not static. All
+    related previously existing methods are removed/replaced.
+    Created Junit test cases for all newly created methods for
+    calculating subtotal, tip, tax, and total testing function.
+    Corrected checkstyle errors throughout.
+
+commit fdce1bbcda49ab29a8144ccfa99e63e6c1f741d5
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 18 13:12:56 2024 -0400
+
+    Add Bill file to project and final modifiers
+    
+    Copied Bill file to project. Converted fields of the
+    BillItem class to be final ensuring that once the fields
+    is set in the constructor that it can't be changed.
+
+commit dbe61c29ec1838f59437b1e9e528e2e0ee96c299
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 18:31:46 2024 -0400
+
+    Added URL to README
+
+commit 68242b3f86824d7fa7ccd63906f739755503732f
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 18:18:44 2024 -0400
+
+    Added Test Cases
+    
+    Created test cases for logic of grade average
+    calculation.
+
+commit 7663a28055bada8ff4d7d159d7c668d083beef04
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Sep 11 12:40:11 2024 -0400
+
+    Refactor code to fix separation of concerns issue
+    
+    Separated out the calculateStudentGradeAverage()
+    method. Logic aspects are now handled by
+    static method in Student class and called by
+    MainWindow class to update and display.
+    Changed Window_Title to display Class Student
+    Roster.
+
+commit b68e4c060e5f60b0d84f9010c5e9f7893989f48d
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Sep 9 12:14:44 2024 -0400
+
+    Added Course Grade Statistics feature
+    
+    Added feature to display the running average of
+    all students in the class roster as they are
+    added or removed from the list.
+
+commit c5a08f1f9b4f00c9bbbb3304ce0a1d0281a144c7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Sun Sep 8 19:54:01 2024 -0400
+
+    Added Student Grades
+    
+    Added support for each student's name to have a
+    grade added to it. Constructor updated for this.
+    Test cases updated to check for required fields
+    of this support.
+    Completed feature to remove student's name from
+    the list.
+    Modified buttons and labels in fxml file to read
+    more easily and formatted per OCD requirements.
+
+commit 178f292bd84557b8c191c3fbaa1088e27df993d4
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 16:37:21 2024 -0400
+
+    Adding additional base files
+    
+    Adding gitignore and license file to the repos.
+
+commit b5a9bf4a6c1247de89396c59b30f46659a1f6fc7
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 15:53:55 2024 -0400
+
+    Adding Base Project
+    
+    Adding Eclipse project to /code/
+
+commit 640f574922d239a68ae81fdd09e29bb9bf054ae8
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Fri Sep 6 15:42:50 2024 -0400
+
+    Adding Base Project Structure
+    
+    Initializing repos for the project.
+    Creating the README for the project (/README.md).
+    Creating the code directory for the project
+    (/code).
