@@ -1,3 +1,70 @@
+commit a9e180313ac8ee04f1ef067be3ec515669472396
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 21 02:06:57 2024 -0500
+
+    Updated GUI with input validation.
+    
+    Added validation logic to disable generatePassword
+    button until minimumLength criteria is met, which
+    enables the button to be executed and password to
+    be created.
+
+commit cacd57a778472632928d1e4d2edd59c629d5227c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Wed Nov 20 13:57:36 2024 -0500
+
+    Added MenuBar to GUI with File menu/functionality
+    
+    Created new MenuBar named File to MainWindow with
+    MenuItem About and corresponding handling method
+    to display a popup that describes the project and lists
+    the author.
+    Implemented new additional MenuItem Close and method
+    to handle exiting the application.
+    which exits the application and closes it.
+
+commit b25412a798f8ed762dc87aa6359284855511685c
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Mon Nov 18 22:21:13 2024 -0500
+
+    Initial commit for Lab 9 project.
+    
+    Added starter files for Lab 9 project to
+    repository.
+
+commit 4290e1af4c82bbc8d4a009a6dd12d0dec6105a36
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 14 01:43:27 2024 -0500
+
+    Updated GUI/logic and added test cases.
+    
+    Replaced textArea with a listView and binded to
+    ViewModel's password list. List property added in
+    ViewModel should now store and display all previous
+    passwords.
+    Added/updated test cases in generatePassword to
+    check new behavior in ViewModel including adding
+    multiple and duplicate passwords.
+
+commit b509a75e5a1f88e82aee80ca8a7023e8e48a755b
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Tue Nov 12 23:23:28 2024 -0500
+
+    Implemented password input field validation.
+    
+    Added change listener to validate minimum length
+    of password to be 1 or more. Created method to
+    verify minimum length against criteria in regular
+    expression format constant ALPHANUMERIC_PATTERN.
+
+commit ef783311088ff1986bf265193e2673a41e6d03aa
+Author: Jonathan A Hand <jhand1@my.westga.edu>
+Date:   Thu Nov 7 01:12:22 2024 -0500
+
+    Added .txt files to repository
+    
+    Attached log.txt and repository url to project.
+
 commit 375697dc52fe641cae2a58f27a927fe42252ef2d
 Author: Jonathan A Hand <jhand1@my.westga.edu>
 Date:   Thu Nov 7 00:45:27 2024 -0500
