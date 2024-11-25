@@ -64,7 +64,7 @@ public class TaskManagerFileUtility {
 				String[] parts = line.split(":", 2);
 
 				if (parts.length != 2) {
-					throw new IllegalArgumentException("Malformed task data: " + line);
+					throw new IllegalArgumentException("Malformed task data: " + line + ". Please use format (Task:Description).");
 				}
 				String title = parts[0];
 				String description = parts[1];

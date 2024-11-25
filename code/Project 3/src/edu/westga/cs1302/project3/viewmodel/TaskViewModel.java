@@ -1,6 +1,11 @@
 package edu.westga.cs1302.project3.viewmodel;
 
 import edu.westga.cs1302.project3.model.TaskManager;
+import edu.westga.cs1302.project3.model.TaskManagerFileUtility;
+
+import java.io.File;
+import java.io.IOException;
+
 import edu.westga.cs1302.project3.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,6 +45,33 @@ public class TaskViewModel {
 	 */
 	public ObservableList<String> getTaskTitles() {
 		return this.taskTitles;
+	}
+
+	/**
+	 * Loads tasks from a specified file using TaskManagerFileUtility.
+	 * 
+	 * @param file the file containing tasks
+	 * @throws IOException              if an I/O error occurs
+	 * @throws IllegalArgumentException if the file format is invalid
+	 */
+	public void loadVMTasks(File file) throws IOException {
+		if (file == null || !file.exists()) {
+			throw new IllegalArgumentException("The file does not exist or is invalid.");
+		}
+
+		TaskManager loadedManager = TaskManagerFileUtility.loadTasks(file);
+
+		this.taskManager = loadedManager;
+		this.taskTitles.clear();
+		
+		for (Task task : this.taskManager.getTasks()) {
+			this.taskTitles.add(task.getTitle());
+		}
+		
+		System.out.println("Stored tasks in TaskManager:");
+	    for (Task task : this.taskManager.getTasks()) {
+	        System.out.println(task.getTitle() + ": " + task.getDescription());
+	    }
 	}
 
 }
