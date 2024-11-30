@@ -19,23 +19,27 @@ public class TaskManagerFileUtility {
 	 * 
 	 * @precondition manager != null && filePath != null
 	 * @postcondition none
-	 * @param manager  the TasManager containing the tasks to save.
-	 * @param filePath the tasks where the files will be saved to.
+	 * @param manager the TasManager containing the tasks to save.
+	 * @param file    the tasks where the files will be saved to.
 	 * @throws IOException if an error happens while writing to the file.
 	 */
-	public static void saveTasks(TaskManager manager, File filePath) throws IOException {
+	public static void saveTasks(TaskManager manager, File file) throws IOException {
 		if (manager == null) {
 			throw new IllegalArgumentException("TaskManager cannot be null.");
 		}
 
-		if (filePath == null) {
-			throw new IllegalArgumentException("File path cannot be null.");
+		if (file == null) {
+			throw new IllegalArgumentException("File cannot be null.");
 		}
 
-		try (FileWriter writer = new FileWriter(filePath)) {
+		try (FileWriter writer = new FileWriter(file)) {
 			for (Task task : manager.getTasks()) {
 				writer.write(task.getTitle() + ":" + task.getDescription() + System.lineSeparator());
+	            System.out.println("Saving task: " + task.getTitle() + ":" + task.getDescription());
+
 			}
+		} catch (IOException error) {
+	        throw new IOException("The file cannot be written to. Please check permissions or if the file is locked.", error);
 		}
 	}
 
@@ -64,14 +68,20 @@ public class TaskManagerFileUtility {
 				String[] parts = line.split(":", 2);
 
 				if (parts.length != 2) {
-					throw new IllegalArgumentException("Malformed task data: " + line + ". Please use format (Task:Description).");
+					throw new IllegalArgumentException(
+							"Malformed task data: " + line + ". Please use format (Task:Description).");
 				}
 				String title = parts[0];
 				String description = parts[1];
+				if (title.isEmpty() || description.isEmpty()) {
+	                throw new IllegalArgumentException("Malformed task data (empty fields): " + line);
+	            }
 				manager.addTask(new Task(title, description));
 			}
+			
+		} catch (IOException error) {
+	        throw new IOException("An error occurred while reading the file.", error);
 		}
 		return manager;
 	}
-
 }

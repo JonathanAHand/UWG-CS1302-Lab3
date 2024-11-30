@@ -23,13 +23,25 @@ public class MainWindow {
 	@FXML
 	private MenuItem loadTasksMenuItem;
 
+	@FXML
+	private MenuItem saveTasksMenuItem;
+
 	private TaskViewModel vm;
 
 	@FXML
 	void initialize() {
 		this.vm = new TaskViewModel();
-		this.taskListView.setItems(this.vm.getTaskTitles());
+		this.bindToViewModel();
+		this.setupEventHandlers();
+	}
+
+	private void bindToViewModel() {
+		this.taskListView.itemsProperty().bind(this.vm.taskTitlesProperty());
+	}
+
+	private void setupEventHandlers() {
 		this.loadTasksMenuItem.setOnAction(event -> this.handleLoadTasks());
+		this.saveTasksMenuItem.setOnAction(event -> this.handleSaveTasks());
 	}
 
 	private void handleLoadTasks() {
@@ -57,4 +69,21 @@ public class MainWindow {
 		alert.showAndWait();
 	}
 
+	@FXML
+	private void handleSaveTasks() {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Task File");
+
+		File selectedFile = fileChooser.showSaveDialog(null);
+
+		if (selectedFile == null) {
+			return;
+		}
+
+		try {
+			this.vm.saveVMTasks(selectedFile);
+		} catch (IllegalArgumentException | IOException error) {
+			this.showErrorPopup("Error Saving Tasks", error.getMessage());
+		}
+	}
 }
