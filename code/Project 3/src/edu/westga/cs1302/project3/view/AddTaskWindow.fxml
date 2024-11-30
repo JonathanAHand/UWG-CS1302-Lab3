@@ -19,7 +19,7 @@
 			prefWidth="218.0" />
 		<Button layoutX="48.0" layoutY="267.0" mnemonicParsing="false"
 			text="Add Task" />
-		<Button layoutX="137.0" layoutY="267.0" mnemonicParsing="false"
-			text="Cancel" />
+		<Button fx:id="cancelButton" layoutX="137.0" layoutY="267.0" mnemonicParsing="false"
+			text="Cancel" onAction="#handleCancel" />
 	</children>
 </AnchorPane>

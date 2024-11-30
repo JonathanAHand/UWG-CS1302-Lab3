@@ -106,6 +106,10 @@ public class MainWindow {
             addTaskStage.setTitle(Main.ADD_TASK_WINDOW_TITLE);
             addTaskStage.setScene(scene);
             addTaskStage.initModality(Modality.APPLICATION_MODAL);
+            
+            Stage primaryStage = (Stage) this.taskListView.getScene().getWindow();
+            addTaskStage.setX(primaryStage.getX() + primaryStage.getWidth() + 10);
+            addTaskStage.setY(primaryStage.getY());
             addTaskStage.showAndWait();
         } catch (IOException error) {
             this.showErrorPopup("Error Opening Add Task Window", "Unable to load the Add Task Window.");
