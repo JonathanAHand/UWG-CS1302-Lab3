@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import edu.westga.cs1302.project3.model.Task;
 import javafx.collections.FXCollections;
 
@@ -22,6 +24,8 @@ public class TaskViewModel {
 
 	private TaskManager taskManager;
 	private final ListProperty<String> taskTitles;
+	private final StringProperty addTaskTitle;
+	private final StringProperty addTaskDescription;
 
 	/**
 	 * Initializes the TaskViewModel with default tasks provided.
@@ -37,6 +41,9 @@ public class TaskViewModel {
 		for (Task task : this.taskManager.getTasks()) {
 			this.taskTitles.add(task.getTitle());
 		}
+
+		this.addTaskTitle = new SimpleStringProperty("");
+		this.addTaskDescription = new SimpleStringProperty("");
 	}
 
 	/**
@@ -46,6 +53,24 @@ public class TaskViewModel {
 	 */
 	public ListProperty<String> taskTitlesProperty() {
 		return this.taskTitles;
+	}
+
+	/**
+	 * Gets the task title property for binding to the INPUT FIELD.
+	 * 
+	 * @return the task title property
+	 */
+	public StringProperty addTaskTitleProperty() {
+		return this.addTaskTitle;
+	}
+
+	/**
+	 * Gets the task description property for binding to the input field.
+	 * 
+	 * @return the task description property
+	 */
+	public StringProperty addTaskDescriptionProperty() {
+		return this.addTaskDescription;
 	}
 
 	/**
@@ -98,4 +123,35 @@ public class TaskViewModel {
 		TaskManagerFileUtility.saveTasks(this.taskManager, file);
 	}
 
+	/**
+	 * Adds a new task to the TaskManager using the provided title and description.
+	 * 
+	 * @precondition !this.taskTitle.get().isEmpty() &&
+	 *               !this.taskDescription.get().isEmpty()
+	 * @postcondition The task is added to the TaskManager, and taskTitles is
+	 *                updated.
+	 */
+	public void addTask() {
+		if (this.addTaskTitle.get().isEmpty()) {
+			throw new IllegalArgumentException("Task title cannot be empty.");
+		}
+		if (this.addTaskDescription.get().isEmpty()) {
+			throw new IllegalArgumentException("Task description cannot be empty.");
+		}
+
+		Task newTask = new Task(this.addTaskTitle.get(), this.addTaskDescription.get());
+		this.taskManager.addTask(newTask);
+		this.updateTaskTitles();
+	}
+
+	/**
+	 * Updates the taskTitles property to reflect the current tasks in the
+	 * TaskManager.
+	 */
+	private void updateTaskTitles() {
+		this.taskTitles.clear();
+		for (Task task : this.taskManager.getTasks()) {
+			this.taskTitles.add(task.getTitle());
+		}
+	}
 }
