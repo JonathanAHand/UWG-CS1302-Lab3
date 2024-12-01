@@ -141,6 +141,8 @@ public class TaskViewModel {
 
 		Task newTask = new Task(this.addTaskTitle.get(), this.addTaskDescription.get());
 		this.taskManager.addTask(newTask);
+		// debug
+		System.out.println("Updated taskTitles: " + this.taskTitles);
 		this.updateTaskTitles();
 	}
 
@@ -153,5 +155,8 @@ public class TaskViewModel {
 		for (Task task : this.taskManager.getTasks()) {
 			this.taskTitles.add(task.getTitle());
 		}
+		// debug
+		System.out.println("Updated task titles: " + this.taskTitles);
 	}
+
 }

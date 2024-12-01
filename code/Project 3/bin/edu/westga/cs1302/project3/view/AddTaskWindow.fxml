@@ -13,13 +13,13 @@
 	<children>
 		<Label layoutX="112.0" layoutY="6.0" text="Title" />
 		<Label layoutX="95.0" layoutY="68.0" text="Description" />
-		<TextArea layoutX="14.0" layoutY="93.0" prefHeight="154.0"
-			prefWidth="218.0" />
-		<TextField layoutX="15.0" layoutY="33.0" prefHeight="25.0"
-			prefWidth="218.0" />
-		<Button layoutX="48.0" layoutY="267.0" mnemonicParsing="false"
-			text="Add Task" />
-		<Button fx:id="cancelButton" layoutX="137.0" layoutY="267.0" mnemonicParsing="false"
-			text="Cancel" onAction="#handleCancel" />
+		<TextArea fx:id="taskDescriptionArea" layoutX="14.0"
+			layoutY="93.0" prefHeight="154.0" prefWidth="218.0" />
+		<TextField fx:id="taskTitleField" layoutX="15.0"
+			layoutY="33.0" prefHeight="25.0" prefWidth="218.0" />
+		<Button fx:id="addTaskButton" layoutX="48.0" layoutY="267.0"
+			mnemonicParsing="false" text="Add Task" onAction="#handleAddTask" />
+		<Button fx:id="cancelButton" layoutX="137.0" layoutY="267.0"
+			mnemonicParsing="false" text="Cancel" onAction="#handleCancel" />
 	</children>
 </AnchorPane>

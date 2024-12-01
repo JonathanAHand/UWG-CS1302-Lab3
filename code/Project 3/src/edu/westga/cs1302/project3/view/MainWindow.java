@@ -93,27 +93,31 @@ public class MainWindow {
 			this.showErrorPopup("Error Saving Tasks", error.getMessage());
 		}
 	}
-	
-	@FXML
-    private void handleAddTask() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource(Main.ADD_TASK_WINDOW));
-            Parent parent = loader.load();
-            Scene scene = new Scene(parent);
 
-            Stage addTaskStage = new Stage();
-            addTaskStage.setTitle(Main.ADD_TASK_WINDOW_TITLE);
-            addTaskStage.setScene(scene);
-            addTaskStage.initModality(Modality.APPLICATION_MODAL);
-            
-            Stage primaryStage = (Stage) this.taskListView.getScene().getWindow();
-            addTaskStage.setX(primaryStage.getX() + primaryStage.getWidth() + 10);
-            addTaskStage.setY(primaryStage.getY());
-            addTaskStage.showAndWait();
-        } catch (IOException error) {
-            this.showErrorPopup("Error Opening Add Task Window", "Unable to load the Add Task Window.");
-        }
-    }
-	
+	@FXML
+	private void handleAddTask() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource(Main.ADD_TASK_WINDOW));
+			Parent parent = loader.load();
+			Scene scene = new Scene(parent);
+
+			Stage addTaskStage = new Stage();
+			addTaskStage.setTitle(Main.ADD_TASK_WINDOW_TITLE);
+			addTaskStage.setScene(scene);
+			addTaskStage.initModality(Modality.APPLICATION_MODAL);
+			
+			AddTaskWindow addTaskController = loader.getController();
+			addTaskController.bindToViewModel(this.vm);
+
+			Stage primaryStage = (Stage) this.taskListView.getScene().getWindow();
+			addTaskStage.setX(primaryStage.getX() + primaryStage.getWidth() + 10);
+			addTaskStage.setY(primaryStage.getY());
+			addTaskStage.showAndWait();
+
+		} catch (IOException error) {
+			this.showErrorPopup("Error Opening Add Task Window", "Unable to load the Add Task Window.");
+		}
+	}
+
 }
