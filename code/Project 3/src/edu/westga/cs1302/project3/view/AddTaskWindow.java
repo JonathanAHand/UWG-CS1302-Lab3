@@ -40,6 +40,7 @@ public class AddTaskWindow {
 
 		this.taskTitleField.textProperty().bindBidirectional(this.vm.addTaskTitleProperty());
 		this.taskDescriptionArea.textProperty().bindBidirectional(this.vm.addTaskDescriptionProperty());
+		
 	}
 
 	/**
