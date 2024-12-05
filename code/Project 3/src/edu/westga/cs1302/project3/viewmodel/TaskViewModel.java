@@ -159,4 +159,34 @@ public class TaskViewModel {
 		System.out.println("Updated task titles: " + this.taskTitles);
 	}
 
+	/**
+	 * Removes the currently selected task from the TaskManager.
+	 * 
+	 * @param taskTitle the title of the task to remove
+	 * @precondition taskTitle != null && !taskTitle.isEmpty()
+	 * @postcondition The task matching the title is removed from the TaskManager,
+	 *                and taskTitles is updated.
+	 */
+	public void removeTask(String taskTitle) {
+		if (taskTitle == null || taskTitle.isEmpty()) {
+			throw new IllegalArgumentException("Task title cannot be null or empty.");
+		}
+
+		Task taskToRemove = null;
+
+		for (Task task : this.taskManager.getTasks()) {
+			if (task.getTitle().equals(taskTitle)) {
+				taskToRemove = task;
+				break;
+			}
+		}
+
+		if (taskToRemove != null) {
+			this.taskManager.removeTask(taskToRemove);
+			this.updateTaskTitles();
+		} else {
+			throw new IllegalArgumentException("Task not found: " + taskTitle);
+		}
+	}
+
 }

@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
@@ -33,6 +34,9 @@ public class MainWindow {
 	@FXML
 	private MenuItem saveTasksMenuItem;
 
+	@FXML
+	private Button removeButton;
+
 	private TaskViewModel vm;
 
 	@FXML
@@ -49,6 +53,9 @@ public class MainWindow {
 	private void setupEventHandlers() {
 		this.loadTasksMenuItem.setOnAction(event -> this.handleLoadTasks());
 		this.saveTasksMenuItem.setOnAction(event -> this.handleSaveTasks());
+
+		this.removeButton.setOnAction(event -> this.handleRemoveTask());
+
 	}
 
 	private void handleLoadTasks() {
@@ -106,7 +113,7 @@ public class MainWindow {
 			addTaskStage.setTitle(Main.ADD_TASK_WINDOW_TITLE);
 			addTaskStage.setScene(scene);
 			addTaskStage.initModality(Modality.APPLICATION_MODAL);
-			
+
 			AddTaskWindow addTaskController = loader.getController();
 			addTaskController.bindToViewModel(this.vm);
 
@@ -117,6 +124,22 @@ public class MainWindow {
 
 		} catch (IOException error) {
 			this.showErrorPopup("Error Opening Add Task Window", "Unable to load the Add Task Window.");
+		}
+	}
+
+	@FXML
+	private void handleRemoveTask() {
+		String selectedTask = this.taskListView.getSelectionModel().getSelectedItem();
+
+		if (selectedTask == null) {
+			this.showErrorPopup("Error", "No task selected to remove.");
+			return;
+		}
+
+		try {
+			this.vm.removeTask(selectedTask);
+		} catch (IllegalArgumentException error) {
+			this.showErrorPopup("Error Removing Task", error.getMessage());
 		}
 	}
 
