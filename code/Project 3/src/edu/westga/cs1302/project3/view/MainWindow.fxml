@@ -11,7 +11,7 @@
 
 <AnchorPane minHeight="244.0" minWidth="250.0"
 	prefHeight="244.0" prefWidth="250.0"
-	xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+	xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="edu.westga.cs1302.project3.view.MainWindow">
 	<children>
 		<MenuBar layoutY="2.0">

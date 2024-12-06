@@ -35,7 +35,6 @@ public class TaskManagerFileUtility {
 		try (FileWriter writer = new FileWriter(file)) {
 			for (Task task : manager.getTasks()) {
 				writer.write(task.getTitle() + ":" + task.getDescription() + System.lineSeparator());
-	            System.out.println("Saving task: " + task.getTitle() + ":" + task.getDescription());
 
 			}
 		} catch (IOException error) {

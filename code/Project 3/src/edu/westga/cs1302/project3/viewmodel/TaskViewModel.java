@@ -94,8 +94,6 @@ public class TaskViewModel {
 			this.taskTitles.add(task.getTitle());
 		}
 
-		// debug
-		System.out.println("Stored tasks in TaskManager:");
 		for (Task task : this.taskManager.getTasks()) {
 			System.out.println(task.getTitle() + ": " + task.getDescription());
 		}
@@ -118,8 +116,6 @@ public class TaskViewModel {
 		if (file == null) {
 			throw new IllegalArgumentException("The file cannot be null.");
 		}
-		System.out.println("Saving tasks to file: " + file.getAbsolutePath());
-
 		TaskManagerFileUtility.saveTasks(this.taskManager, file);
 	}
 
@@ -141,8 +137,6 @@ public class TaskViewModel {
 
 		Task newTask = new Task(this.addTaskTitle.get(), this.addTaskDescription.get());
 		this.taskManager.addTask(newTask);
-		// debug
-		System.out.println("Updated taskTitles: " + this.taskTitles);
 		this.updateTaskTitles();
 	}
 
@@ -155,8 +149,7 @@ public class TaskViewModel {
 		for (Task task : this.taskManager.getTasks()) {
 			this.taskTitles.add(task.getTitle());
 		}
-		// debug
-		System.out.println("Updated task titles: " + this.taskTitles);
+		
 	}
 
 	/**

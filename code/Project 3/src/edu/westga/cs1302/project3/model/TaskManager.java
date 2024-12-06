@@ -51,9 +51,8 @@ public class TaskManager {
 			throw new IllegalArgumentException("Task cannot be null");
 		}
 		
-		Task existingTask = this.taskLookupTable.get(task.getTitle());
-		if (existingTask != null && existingTask.getDescription().equals(task.getDescription())) {
-            throw new IllegalArgumentException("A task with the same title and description already exists.");
+		if (this.taskLookupTable.containsKey(task.getTitle())) {
+            throw new IllegalArgumentException("A task with the same title already exists.");
         }
 		this.tasks.add(task);
 	    this.taskLookupTable.put(task.getTitle(), task);
@@ -76,6 +75,8 @@ public class TaskManager {
 		if (!this.tasks.remove(task)) {
 			throw new IllegalArgumentException("Task was not found within the TaskManager.");
 		}
+        this.taskLookupTable.remove(task.getTitle());
+
 	}
 
 }
