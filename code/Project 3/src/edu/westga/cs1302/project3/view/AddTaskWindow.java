@@ -40,7 +40,7 @@ public class AddTaskWindow {
 
 		this.taskTitleField.textProperty().bindBidirectional(this.vm.addTaskTitleProperty());
 		this.taskDescriptionArea.textProperty().bindBidirectional(this.vm.addTaskDescriptionProperty());
-		
+
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class AddTaskWindow {
 	@FXML
 	private void handleCancel() {
 		this.taskTitleField.clear();
-	    this.taskDescriptionArea.clear();
+		this.taskDescriptionArea.clear();
 		Stage stage = (Stage) this.cancelButton.getScene().getWindow();
 		stage.close();
 	}
@@ -76,7 +76,7 @@ public class AddTaskWindow {
 	 */
 	private void closeWindow() {
 		this.taskTitleField.clear();
-	    this.taskDescriptionArea.clear();
+		this.taskDescriptionArea.clear();
 		Stage stage = (Stage) this.addTaskButton.getScene().getWindow();
 		stage.close();
 	}

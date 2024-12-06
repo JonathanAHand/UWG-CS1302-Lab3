@@ -74,6 +74,15 @@ public class TaskViewModel {
 	}
 
 	/**
+	 * Gets the TaskManager associated with this ViewModel.
+	 * 
+	 * @return the TaskManager
+	 */
+	public TaskManager getTaskManager() {
+		return this.taskManager;
+	}
+
+	/**
 	 * Loads tasks from a specified file using TaskManagerFileUtility.
 	 * 
 	 * @param file the file containing tasks
@@ -149,7 +158,7 @@ public class TaskViewModel {
 		for (Task task : this.taskManager.getTasks()) {
 			this.taskTitles.add(task.getTitle());
 		}
-		
+
 	}
 
 	/**
